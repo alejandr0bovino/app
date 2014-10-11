@@ -40,12 +40,12 @@
 
 
 .fadeZ.ng-enter {
-  @include animation-duration(5s);
+  @include animation-duration(4s);
   @include animation-name(zoomInZ);
 }
 
 .fadeZFadeDown.ng-enter {
-  @include animation-duration(5s);
+  @include animation-duration(4s);
   @include animation-name(zoomInZ);
   @include animation-timing-function(ease-in);
 }
