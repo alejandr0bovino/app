@@ -1,0 +1,40 @@
+.mod-alert-msg {
+    max-height: 50px;
+
+    .alert {
+        margin-bottom: 0;
+        overflow: hidden;
+    }
+}
+
+.mod-alert-msg__anim {    
+    &.ng-enter,
+    &.ng-leave {
+      @include animation-timing-function($transition-function);
+      @include animation-duration($transition-duration1);
+    }
+
+    &.ng-enter {
+        //opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;         
+        @include animation-name(animSlideTop);
+    }    
+
+    &.ng-leave {         
+        @include animation-name(animSlideDown);
+    }
+}
+
+
+@-webkit-keyframes animSlideTop {
+    0% {  padding-top: 0;  padding-bottom: 0;  }
+    100% {  padding-top: 15px;  padding-bottom: 15px;  }
+}
+
+@-webkit-keyframes animSlideDown {
+    0% {  padding-top: 15px;  padding-bottom: 15px; }
+    100% {   padding-top: 0;  padding-bottom: 0; }
+}
+
+

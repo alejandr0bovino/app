@@ -1,0 +1,54 @@
+.header {
+  background: $brand-primary;
+  position: relative;
+  overflow: hidden;
+  //min-height: 150px;
+
+  &:before/* ,
+  &:after */ {
+    content: '';
+    position: absolute;
+    width: 110%;
+    top: -10px;
+    transform: skewY(-5deg);
+    background: $brand-danger;
+    padding-top: 150px;
+  }
+  // &:after {
+  //   padding:30px;
+  // } 
+
+  div {
+    @extend .container;
+    min-height: 150px;
+    transform: skewY(-5deg);
+    padding-top: 20px;
+    //background: $brand-danger;
+  }
+}
+
+.page-header {
+  padding: 0;
+
+  color: $brand-primary;
+  font-size: 300%;
+  font-family: 'Arvo', serif;  
+
+  font-weight: 700;
+  margin: 0;
+
+  // opacity: 1;
+  // @include transition(opacity $transition-duration1 $transition-function);
+  // &.ng-hide {
+  //   opacity :0;
+  // }
+
+  small {
+    color: $brand-primary;
+  }
+}
+
+
+
+
+

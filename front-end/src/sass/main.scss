@@ -1,0 +1,116 @@
+@import "settings",
+        "compass",
+        "vendor/base",
+        "global/base",        
+        "modules/base",
+        "themes/base";
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Navigation
+ */
+
+.navbar-nav .active .fa-toggle-off:before {
+  content: "\f205";
+}
+.navbar-brand {
+  &:hover {
+    img {      
+      transform: scaleX(-1);
+      filter: FlipH;          
+    }
+  }
+}
+
+
+
+// modules
+.sidebar .active .btn-link {
+  color: $link-hover-color;
+  text-decoration: underline;
+}
+
+
+
+// cells
+
+.signup-or-separator {
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: $line-height-computed;
+  
+  &:before,
+  &:after {
+      background-color: #ccc;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 50%;
+  }
+  &:before {
+      right: 0.5em;
+      margin-left: -50%;
+  }
+  &:after {
+      left: 0.5em;
+      margin-right: -50%;
+  }
+}
+
+
+
+
+/**
+ * Now that all app-wide styles have been applied, we can load the styles for
+ * all the submodules and components we are using. 
+ *
+ * TODO: In a later version of this boilerplate, I'd like to automate this.
+ */
+
+@import "../app/home/home.scss";
+@import "../app/books/books.scss";
+@import "../app/page/page.scss";
+//@import "../app/contacts/contacts.scss";
+
+
+
+
+
+
+
+
+
+
+
+
+///////////
+
+
+
+
+
+
+
+
+
+
+//////////////////////
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+
+
+
+
+//
+
+html {
+  background-color: darken($ps-bg, 2);
+}
+
+body {
+  padding-top: 51px;
+  overflow-y: scroll;
+
+  //background-color: #eee;
+}
+
+
+.theme-section {
+  padding: 4em 0 6em;
+  min-height: 450px;
+  //background-color: #fff;
+}
+.theme-section__inner {
+  @extend .container;
+}
+
+.footer {
+  color: desaturate(darken($brand-primary, 30), 20);
+  background-color: darken($ps-bg, 2);
+
+  a {
+    color: desaturate(darken($brand-primary, 30), 20);
+  }
+  .footer-inner {
+    @extend .container;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  
+  .social {
+    float: right;
+    margin: 0;
+    list-style: none;
+    font-size: 20px; 
+    color: desaturate(darken($brand-primary,30), 20);
+
+    li {
+      float: left;
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div>
+  <h3>{{contact.name}}  &nbsp;<small ui-view="menuTip"></small></h3>
+
+
+
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="item in contact.items">      
+      <a ui-sref="contacts.detail.item({itemId:item.id})">{{item.type}}</a>
+    </li>
+  </ul>
+
+  <div ui-view class="fadeZ"></div>
+
+</div>

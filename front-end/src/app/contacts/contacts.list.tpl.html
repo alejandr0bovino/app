@@ -1,0 +1,7 @@
+<h3>All contacts</h3>
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="contact in contacts">
+    <a ui-sref="contacts.detail({contactId:contact.id})">{{contact.name}}</a>
+  </li>
+</ul>    
