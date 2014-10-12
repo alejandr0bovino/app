@@ -3,6 +3,8 @@ angular.module( 'ngBoilerplate.books', [
   'ui.bootstrap'
 ])
 
+
+
 .config(
   ['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
       $urlRouterProvider        
@@ -21,14 +23,19 @@ angular.module( 'ngBoilerplate.books', [
                 return BookService.getGenres().query();
               }
             }
-          },            
+          },         
           views: {
             "main": {
               controller: 'BooksCtrl',              
               templateUrl: 'books/books.tpl.html'              
             }
           },
-          data:{ pageTitle: 'Books' }
+          data:{
+            pageTitle: 'Books'
+            // permissions: {
+            //   only: ['anonymous']
+            // }
+          }
       })
 
       // Contacts > List
@@ -109,11 +116,8 @@ angular.module( 'ngBoilerplate.books', [
       return $resource(apiUrl + '/books/genres', {});
     },
     getBookById: function() {
-
       return $resource(
-
         apiUrl + '/books/xss/:id', 
-
         {
           id: '@id'
         },
@@ -123,13 +127,7 @@ angular.module( 'ngBoilerplate.books', [
             isArray:false
           }
         }
-
       );
-
-
-
-
-
     }
   }; 
 })

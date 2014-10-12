@@ -19,11 +19,13 @@
       ));
 
     .panel-heading {
-      @include transition((
-        background-color $transition-duration0 $transition-function,
-        color $transition-duration0 $transition-function
-      ));
-      color: $ps-bg;
+      // @include transition((
+      //   background-color $transition-duration0 $transition-function,
+      //   color $transition-duration0 $transition-function
+      // ));
+      background-color: transparent;
+      @include transition(color $transition-duration0 $transition-function);
+      color: $brand-primary;
     }
 
     .panel-body {

@@ -13,12 +13,14 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.alert.service',
   'ngBoilerplate.authenticate.service',
   'ngBoilerplate.shell.service',
+  'ngBoilerplate.user.service',
   'ui.router',
-  'ngResource'
+  'ngResource',
+  'permission'
 ])
 
 .constant('apiUrl', 'http://backend.birds.codinglist.com/api')
-.constant("requireAuth", ['books', 'contacts'])
+.constant("requireAuth", ['books'])
 
 .config( function myAppConfig (apiUrl, $stateProvider, $urlRouterProvider, $authProvider ) {    
 
@@ -78,20 +80,58 @@ angular.module( 'ngBoilerplate', [
   });
 })
 
+.run(['$rootScope', '$state', '$stateParams', 'Permission', 'User', '$q', 'authenticate',
+    function ($rootScope,   $state,   $stateParams, Permission, User, $q, authenticate) {
 
-/*.run( function run () {
-})*/
+      // It's very handy to add references to $state and $stateParams to the $rootScope
+      // so that you can access them from any scope within your applications.For example,
+      // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+      // to active whenever 'contacts.list' or one of its decendents is active.
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
 
-.run(
-  [          '$rootScope', '$state', '$stateParams',
-    function ($rootScope,   $state,   $stateParams) {
 
-    // It's very handy to add references to $state and $stateParams to the $rootScope
-    // so that you can access them from any scope within your applications.For example,
-    // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
-    // to active whenever 'contacts.list' or one of its decendents is active.
-    $rootScope.$state = $state;
-    $rootScope.$stateParams = $stateParams;
+      Permission
+        .defineRole('anonymous', function () {
+          if (!authenticate.islogged()) {
+            return true;
+          }
+          return false;
+        })
+        .defineRole('user', function () {
+          if (authenticate.islogged()) {
+            return true;
+          }
+          return false;
+        })
+        .defineRole('editor', function () {
+          var deferred = $q.defer();
+           User.getUser().then(function (response) {
+            if (response.data.role === 'editor') {
+              deferred.resolve();              
+            } else {
+              deferred.reject();
+            }
+          }, function () {
+            deferred.reject();
+          });
+          return deferred.promise;
+        })
+        .defineRole('admin', function () {
+          var deferred = $q.defer();
+           User.getUser().then(function (response) {
+            if (response.data.role === 'admin') {
+              deferred.resolve();
+              
+            } else {
+              deferred.reject();
+            }
+          }, function () {
+            deferred.reject();
+          });
+          return deferred.promise;
+        });
+
     }
   ]
 )
@@ -101,21 +141,11 @@ angular.module( 'ngBoilerplate', [
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
     }
-    //
-
-    // $scope.show_title = false;
-    // $timeout(function() {
-    //   $scope.$apply('show_title = true');
-    // }, 10);
-
-    //
 
     var currentState = toState.name.split('.', 1);
 
     if((requireAuth.indexOf(currentState[0]) > -1) && !$auth.isAuthenticated()) {
       $scope.loginRedirect = 'user.login';
-
-      //alertService.add('warning', 'Please log in to continue', 2500);                      
       
       $scope.referer = function () {
         shell.setReferer(toState.name);

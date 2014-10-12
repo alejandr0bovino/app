@@ -17,7 +17,7 @@ body {
 
 
 .theme-section {
-  padding: 4em 0 6em;
+  padding: 3em 0 4em;
   min-height: 450px;
   //background-color: #fff;
 }
@@ -49,5 +49,20 @@ body {
       float: left;
       margin-left: 20px;
     }
+  }
+}
+
+
+
+/////////////////////
+
+
+.list {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  li:not(:last-child) {
+    margin-bottom: 15px;
   }
 }

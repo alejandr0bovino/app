@@ -2,14 +2,14 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
 ])
 
-.controller( 'ProfileCtrl', function ProfileCtrl( $scope, $auth, Account, alertService, $state, resA ) {  
+.controller( 'ProfileCtrl', function ProfileCtrl( $scope, $auth, User, alertService, $state, resA ) {  
 
   if (!resA) {
     $state.go('user.login');
   } else {
     $scope.$parent.title = "Profile";
 
-    Account.getProfile()
+    User.getUser()
       .success(function(data) {
         $scope.user = data;
       })
@@ -17,8 +17,8 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         alertService.add('danger', 'Unable to get user information', 5000);
       });
 
-    $scope.updateProfile = function() {
-      Account.updateProfile({
+    $scope.updateUser = function() {
+      User.updateUser({
         displayName: $scope.user.displayName,
         email: $scope.user.email
       }).then(function() { 
@@ -72,18 +72,6 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
     };
 
   }
-})
-
-
-.factory('Account', function(apiUrl, $http) {
-  return {
-    getProfile: function() {
-      return $http.get(apiUrl + '/me');
-    },
-    updateProfile: function(profileData) {
-      return $http.put(apiUrl + '/me', profileData);
-    }
-  };
 })
 
 

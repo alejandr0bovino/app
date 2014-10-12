@@ -34,12 +34,6 @@
 
 
 
-// modules
-.sidebar .active .btn-link {
-  color: $link-hover-color;
-  text-decoration: underline;
-}
-
 
 
 // cells
@@ -82,7 +76,6 @@
 @import "../app/home/home.scss";
 @import "../app/books/books.scss";
 @import "../app/page/page.scss";
-//@import "../app/contacts/contacts.scss";
 
 
 

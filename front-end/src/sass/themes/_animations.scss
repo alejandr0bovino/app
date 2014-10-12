@@ -5,10 +5,10 @@
   @include animation-name(zoomIn);
 }
 
-.fadeZoomFadeDown.ng-enter {
-  @include animation-duration(1s);
-  @include animation-name(zoomIn);
-}
+// .fadeZoomFadeDown.ng-enter {
+//   @include animation-duration(1s);
+//   @include animation-name(zoomIn);
+// }
 
 
 @-webkit-keyframes zoomIn {
@@ -44,11 +44,11 @@
   @include animation-name(zoomInZ);
 }
 
-.fadeZFadeDown.ng-enter {
-  @include animation-duration(4s);
-  @include animation-name(zoomInZ);
-  @include animation-timing-function(ease-in);
-}
+// .fadeZFadeDown.ng-enter {
+//   @include animation-duration(4s);
+//   @include animation-name(zoomInZ);
+//   @include animation-timing-function(ease-in);
+// }
 
 
 @-webkit-keyframes zoomInZ {

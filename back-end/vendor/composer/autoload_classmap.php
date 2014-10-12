@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddAbstractToBooks' => $baseDir . '/app/database/migrations/2014_10_06_230935_add_abstract_to_books.php',
     'AddCoverToBooks' => $baseDir . '/app/database/migrations/2014_10_10_014218_add_cover_to_books.php',
+    'AddRoleToUsers' => $baseDir . '/app/database/migrations/2014_10_11_211023_add_role_to_users.php',
     'AuthController' => $baseDir . '/app/controllers/AuthController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'BirdsAppSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',

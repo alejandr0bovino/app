@@ -13,6 +13,11 @@
           "id": "b",
           "type": "email",
           "value": "alice@mailinator.com"
+        },
+        {
+          "id": "c",
+          "type": "deporte preferido",
+          "value": "atletismo"
         }
       ]
     },

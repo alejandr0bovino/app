@@ -1,3 +1,54 @@
+
+
+////////////////////////////////////////////////////////////////////////
+
+
+$ps-text:         #DC3522;
+$ps-nav-bg:       #DC3522;
+$ps-link-text:    #83aca0;
+$ps-nav-text:     #374140;
+$ps-well-bg:      #374140;
+$ps-bg:           #1E1E20;
+
+$gray-darker:            lighten(#000, 13.5%); // #222
+$gray-dark:              lighten(#000, 20%);   // #333
+$gray:                   lighten(#000, 33.5%); // #555
+$gray-light:             lighten(#000, 46.7%); // #777
+$gray-lighter:           lighten(#000, 93.5%); // #eee
+
+//$brand-primary:         #83aca0;
+$brand-primary:         #95BFB3;
+
+$brand-success:         #5cb85c;
+$brand-info:            darken(desaturate(#5bc0de, 20), 10);
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////
+
+
+
+
+
+$body-bg:               $ps-bg;
+$text-color:            $brand-primary;
+$link-color:            $ps-link-text;
+$link-hover-color:     $link-color;
+
+
+
+
+/////////////////////////////////////////////
+
+
+
 $transition-duration0:  .2s;
 $transition-duration1:  .4s;
 $transition-duration2:  .8s;
@@ -16,40 +67,14 @@ $transition-function:   ease-out;
 $font-path:         "fonts";
 
 
-$ps-text:         #DC3522;
-$ps-nav-bg:       #DC3522;
-$ps-link-text:    #83aca0;
-$ps-nav-text:     #374140;
-$ps-well-bg:      #374140;
-$ps-bg:           #1E1E20;
-
-//== Colors
-//
-//## Gray and brand colors for use across Bootstrap.
-
-$gray-darker:            lighten(#000, 13.5%); // #222
-$gray-dark:              lighten(#000, 20%);   // #333
-$gray:                   lighten(#000, 33.5%); // #555
-$gray-light:             lighten(#000, 46.7%); // #777
-$gray-lighter:           lighten(#000, 93.5%); // #eee
-
-$brand-primary:         #83aca0;
-$brand-success:         #5cb85c;
-$brand-info:            darken(desaturate(#5bc0de, 20), 10);
-$brand-warning:         #f0ad4e;
-$brand-danger:          #d9534f;
-
-
-$body-bg:               $ps-bg;
-$text-color:            $brand-primary;
-$link-color:            $ps-link-text;
-//$link-hover-color:      darken($link-color, 15%);
-$link-hover-color:     $link-color;
 
 
 
 
-/////////////////////////////////////////////
+
+
+
+
 
 $input-bg: $body-bg;
 $input-color: $brand-primary;
@@ -63,8 +88,8 @@ $input-border: transparent;
 
 $navbar-default-bg: $body-bg;
 $navbar-default-link-color: $brand-primary;
-$navbar-default-link-hover-color: $brand-danger;
-$navbar-default-link-active-color: darken($brand-danger, 10);
+$navbar-default-link-hover-color: $brand-primary;
+$navbar-default-link-active-color: $brand-primary;
 
 $border-radius-base: 2px;
 $border-radius-small: 2px;
@@ -118,3 +143,8 @@ $dropdown-link-hover-color: $link-hover-color;
 // $dropdown-link-disabled-color 
 // $dropdown-header-color 
 // $dropdown-caret-color
+
+
+
+$tooltip-bg: #fff;
+$tooltip-color: $ps-bg;

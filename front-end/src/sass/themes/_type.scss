@@ -33,3 +33,7 @@ cursor: default;
 a:hover {
   text-decoration: none;
 }
+
+label::after {
+  content: ' :';
+}

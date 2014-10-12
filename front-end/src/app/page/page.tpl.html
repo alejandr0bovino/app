@@ -1,94 +1,91 @@
 <div class="page">
   <div class="header">
-      <div>
-              <!-- <h1 class="page-header" ng-show="show_title" ng-animate="{show: 'show'}" > -->
+    <div>
       <h1 class="page-header">
-         UI Bootstrap
-          <small>Angular js</small>
-        </h1>
-      </div>
+        UI Bootstrap
+        <small>Angular js</small>
+      </h1>
+    </div>
   </div>
 
   <section class="theme-section">
     <div class="theme-section__inner">
       <div class="row">
-      <div class="col-sm-8">
+        <div class="col-sm-8">
 
-        <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+          <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
 
-        <br>
+          <br>
 
-        <h4>Popup</h4>
+          <h4>Popup</h4>
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="input-group">
-              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'"  date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" readonly placeholder="Choose date...">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group">
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'"  date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" readonly placeholder="Choose date...">
 
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-primary" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
-              </span>          
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-primary" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+                </span>          
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <select class="form-control" ng-model="format" ng-options="f for f in formats">
+                <option value="">- Select format -</option>
+              </select>
             </div>
           </div>
 
-          <div class="col-md-4">
-            <select class="form-control" ng-model="format" ng-options="f for f in formats">
-              <option value="">- Select format -</option>
-            </select>
+          <br>
+          
+          <button type="button" class="btn btn-sm btn-primary" ng-click="today()">Today</button>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="dt = '2009-08-24'">2009-08-24</button>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <button type="button" class="btn btn-sm btn-primary" ng-click="clear()">Clear</button>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="mod-panel">
+            <accordion close-others="oneAtATime">
+              <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+              This content is straight in the template.
+              </accordion-group>
+              
+              <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                {{group.content}}
+              </accordion-group>
+              
+              <accordion-group heading="Dynamic Body Content">  
+                <p>The body of the accordion group grows to fit the contents</p>
+                <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+                <br>
+                <div ng-repeat="item in items">{{item}}</div>
+
+              </accordion-group>
+              
+              <accordion-group is-open="status.open">
+                <accordion-heading>
+                  I can have markup, too! <i  class="pull-right fa" ng-class="{'fa-arrow-circle-o-up': status.open, 'fa-arrow-circle-o-down': !status.open}"></i>
+                </accordion-heading>
+                This is just some content to illustrate fancy headings.
+              </accordion-group>
+            </accordion>
           </div>
+
+          <br>
+
+          <p>
+              <button class="btn btn-primary btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+              <button class="btn btn-primary btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+          </p>
+
+          <label class="checkbox">
+            <input type="checkbox" ng-model="oneAtATime" style="margin-left: 0;position: static; margin-right: 5px;">
+            Open only one at a time
+          </label>
         </div>
-
-        <hr />
-        
-        <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
-        <button type="button" class="btn btn-sm btn-primary" ng-click="dt = '2009-08-24'">2009-08-24</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-        <button type="button" class="btn btn-sm btn-primary" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
-
-
-      </div>
-
-      <div class="col-sm-4">
-        <div class="mod-panel">
-          <accordion close-others="oneAtATime">
-            <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-            This content is straight in the template.
-            </accordion-group>
-            
-            <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-              {{group.content}}
-            </accordion-group>
-            
-            <accordion-group heading="Dynamic Body Content">  
-              <p>The body of the accordion group grows to fit the contents</p>
-              <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-              <br>
-              <div ng-repeat="item in items">{{item}}</div>
-
-            </accordion-group>
-            
-            <accordion-group is-open="status.open">
-              <accordion-heading>
-                I can have markup, too! <i  class="pull-right fa" ng-class="{'fa-arrow-circle-o-up': status.open, 'fa-arrow-circle-o-down': !status.open}"></i>
-              </accordion-heading>
-              This is just some content to illustrate fancy headings.
-            </accordion-group>
-          </accordion>
-        </div>
-
-        <br>
-
-        <p>
-            <button class="btn btn-info btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
-            <button class="btn btn-info btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
-        </p>
-
-        <label class="checkbox">
-          <input type="checkbox" ng-model="oneAtATime" style="margin-left: 0;position: static; margin-right: 5px;">
-          Open only one at a time
-        </label>
-      </div>
       </div>
     </div>
   </section>

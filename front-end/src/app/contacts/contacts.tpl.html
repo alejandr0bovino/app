@@ -10,20 +10,13 @@
   
   <section class="theme-section">
     <div class="theme-section__inner">
-      <div ng-if="!isAuthenticated()">  
-        <div ng-include src="'includes/login.continue.tpl.html'"></div>
-      </div>
-
-      <div class="row" ng-if="isAuthenticated()">
+      <div class="row">
         <div class="col-md-8">
-            <div class="fadeZ" ui-view></div>
-            
-            <br><br>              
-            <!-- <div ui-view="menuTip"></div> -->     
+            <div class="fadeZoom" ui-view></div>            
         </div>
 
-        <div class="sidebar col-md-4 mod-panel">
-          <div class="panel panel-primary">
+        <div class="col-md-4">
+          <div class="panel panel-inverse">
             <div class="panel-heading">
               <h3 class="panel-title">
                 <i class="fa fa-male"></i>
@@ -44,7 +37,7 @@
             </div>
           </div>
 
-          <div class="panel panel-primary">
+          <div class="panel panel-inverse">
             <div class="panel-heading">          
               <h3 class="panel-title">
                 <i class="fa fa-area-chart"></i>
