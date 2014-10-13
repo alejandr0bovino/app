@@ -168,11 +168,53 @@ angular.module( 'ngBoilerplate', [
   $scope.isAuthenticated = function() {
     return $auth.isAuthenticated();
   };
+
+  
+
+  //
+
+
+  // $scope.eee = function (e) {
+        
+  //   shell.setClick(e.target);
+    
+
+  // };
+
+
 })
 
 
+.directive('bodyClick', function ($document, $parse) {
 
+  var linkFunction = function ($scope, $element, $attributes) {
 
+    var scopeExpression = $attributes.bodyClick;
+    var invoker = $parse(scopeExpression);
 
+    $document.on('click', function (event) {
+
+      $scope.$apply(function () {
+        invoker($scope, { $event: event });
+      });
+
+    });
+
+  };
+
+  return linkFunction;
+
+})
+
+.directive('stopEvent', function () {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attr) {
+      element.bind(attr.stopEvent, function (e) {
+          e.stopPropagation();
+      });
+    }
+  };
+})
 
 ;

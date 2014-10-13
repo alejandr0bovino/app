@@ -55,7 +55,9 @@ angular.module('ngBoilerplate.contacts', [
                 }
               },
               controller: ['$scope', '$stateParams', 'utils', 'userRole', 'growl', '$document',
-                function (  $scope,   $stateParams, utils, userRole, growl, $document) {
+
+
+                function (  $scope, $stateParams, utils, userRole, growl, $document) {
                   
                   $scope.contact = utils.findById($scope.contacts, $stateParams.contactId);
 
@@ -68,7 +70,7 @@ angular.module('ngBoilerplate.contacts', [
                       element.originalValue = element.value;
                     });
 
-                    $scope.edit = function (e) {
+                    $scope.edit = function (e) {                      
                       $scope.contact.items.forEach(function (element, index) {                    
                         element.editing = false;
                         element.focused = false;
@@ -80,13 +82,20 @@ angular.module('ngBoilerplate.contacts', [
                     };
 
                     $scope.done = function (e) {                      
-                      e.editing = false;
-                      e.focused = false;
-                      e.originalValue = e.value;
-                      growl.success('Actualizaci&oacute;n correcta', {
-                        //referenceId: 334,
-                        ttl: 2500, disableCloseButton: false
-                      });
+                      
+                      if ( e.value !== e.originalValue ) {
+
+                        // se guarda el elemento en la db
+
+                        e.editing = false;
+                        e.focused = false;
+                        e.originalValue = e.value;
+
+                        growl.success('Actualizaci&oacute;n correcta', {
+                          ttl: 2500, disableCloseButton: false
+                        });  
+                      }
+                      
                     };
 
                   } else {
@@ -94,23 +103,23 @@ angular.module('ngBoilerplate.contacts', [
                   }
 
                   $scope.keypressCallback = function (e) {
-                     e.editing = false;
+                    if ( e.value !== e.originalValue ) {
+                      e.editing = false;                      
                       e.originalValue = e.value;
                       growl.success('Actualizaci&oacute;n correcta', {
                         ttl: 2500, disableCloseButton: false
                       });
+
+                    }
                   };
 
-                  // angular.element($document[0].body).on('click',function(e) {
-                  //   // var inThing =  angular.element(e.target).inheritedData('thing');
-
-
-                  //   $scope.contact.items.forEach(function (element) {
-                  //     element.editing = false;
-                  //     //element.focused = false;
-                  //     element.originalValue = element.value;
-                  //   });
-                  // });
+                  angular.element($document[0].body).on('click',function(e) {
+                    $scope.contact.items.forEach(function (element) {
+                      element.editing = false;
+                        element.focused = false;
+                        element.value = element.originalValue;
+                    });
+                  });
 
                   
                 }]
@@ -150,9 +159,7 @@ angular.module('ngBoilerplate.contacts', [
       });
     }
   };
-}
-
-)
+})
 
 
 
