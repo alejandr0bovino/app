@@ -54,8 +54,8 @@ angular.module('ngBoilerplate.contacts', [
                   return User.getUser();
                 }
               },
-              controller: ['$scope', '$stateParams', 'utils', 'userRole', 'growl',
-                function (  $scope,   $stateParams, utils, userRole, growl) {
+              controller: ['$scope', '$stateParams', 'utils', 'userRole', 'growl', '$document',
+                function (  $scope,   $stateParams, utils, userRole, growl, $document) {
                   
                   $scope.contact = utils.findById($scope.contacts, $stateParams.contactId);
 
@@ -97,10 +97,21 @@ angular.module('ngBoilerplate.contacts', [
                      e.editing = false;
                       e.originalValue = e.value;
                       growl.success('Actualizaci&oacute;n correcta', {
-                        //referenceId: 334,
                         ttl: 2500, disableCloseButton: false
                       });
                   };
+
+                  // angular.element($document[0].body).on('click',function(e) {
+                  //   // var inThing =  angular.element(e.target).inheritedData('thing');
+
+
+                  //   $scope.contact.items.forEach(function (element) {
+                  //     element.editing = false;
+                  //     //element.focused = false;
+                  //     element.originalValue = element.value;
+                  //   });
+                  // });
+
                   
                 }]
             },            
@@ -123,11 +134,11 @@ angular.module('ngBoilerplate.contacts', [
 )
 
 
-.directive('syncFocusWith', function($timeout, $rootScope) {
+.directive('syncFocus', function($timeout, $rootScope) {
   return {
     restrict: 'A',
     scope: {
-      focusValue: "=syncFocusWith"
+      focusValue: "=syncFocus"
     },
     link: function($scope, $element, attrs) {
       $scope.$watch("focusValue", function(currentValue, previousValue) {
@@ -142,6 +153,7 @@ angular.module('ngBoilerplate.contacts', [
 }
 
 )
+
 
 
 ;

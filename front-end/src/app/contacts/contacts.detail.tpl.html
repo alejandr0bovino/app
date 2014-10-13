@@ -19,7 +19,7 @@
 
           <div class="input-group">           
             <input class="form-control" type="text" placeholder="{{item.value}}" 
-            ng-disabled="!item.editing" ng-model="item.value" sync-focus-with="item.focused"
+            ng-disabled="!item.editing" ng-model="item.value" sync-focus="item.focused"
             ng-keyup="$event.keyCode == 13 && keypressCallback(item)"
              
             >  
