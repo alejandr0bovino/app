@@ -4,6 +4,10 @@
   </div>
 
   <div class="panel-body">
+    <div class="notification2">
+      <div growl inline="true" reference="334"></div>
+    </div>
+    
     <ul class="list">
       <li ng-repeat="item in contact.items">
         <div ng-show="!permissionToEdit">
@@ -14,15 +18,19 @@
           <label>{{item.type}}</label>
 
           <div class="input-group">           
-            <input class="form-control" type="text" placeholder="{{item.value}}" ng-disabled="!item.editing" ng-model="item.value" sync-focus-with="item.focused">  
+            <input class="form-control" type="text" placeholder="{{item.value}}" 
+            ng-disabled="!item.editing" ng-model="item.value" sync-focus-with="item.focused"
+            ng-keyup="$event.keyCode == 13 && keypressCallback(item)"
+             
+            >  
 
             <span class="input-group-btn">                  
                 <button class="btn btn-inverse" ng-click="edit(item)" ng-show="!item.editing" style="width: 80px"><i class="fa fa-eraser"></i> Edit</button>
                 <button class="btn btn-inverse" ng-click="done(item)" ng-show="item.editing" style="width: 80px;"><i class="fa fa-check"></i> Done</button>
             </span>
           </div>
-        </div>
+        </div>        
       </li>
-    </ul>
+    </ul>    
   </div>
 </div>

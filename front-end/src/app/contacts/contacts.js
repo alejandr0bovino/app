@@ -14,8 +14,8 @@ angular.module('ngBoilerplate.contacts', [
           url: '/contacts',
           views: {
             "main": {
-              controller: ['$scope', '$state', 'contacts', 'utils', 'alertService', 
-                function ( $scope,   $state,   contacts,   utils, alertService) {
+              controller: ['$scope', '$state', 'contacts', 'utils',
+                function ( $scope,   $state,   contacts,   utils) {
                   if (contacts) {                  
                     $scope.contacts = contacts;
                     $scope.goToRandom = function () {
@@ -54,8 +54,8 @@ angular.module('ngBoilerplate.contacts', [
                   return User.getUser();
                 }
               },
-              controller: ['$scope', '$stateParams', 'utils', 'userRole',
-                function (  $scope,   $stateParams,   utils, userRole) {
+              controller: ['$scope', '$stateParams', 'utils', 'userRole', 'growl',
+                function (  $scope,   $stateParams, utils, userRole, growl) {
                   
                   $scope.contact = utils.findById($scope.contacts, $stateParams.contactId);
 
@@ -79,15 +79,28 @@ angular.module('ngBoilerplate.contacts', [
                       e.focused = true;
                     };
 
-                    $scope.done = function (e) {
+                    $scope.done = function (e) {                      
                       e.editing = false;
                       e.focused = false;
                       e.originalValue = e.value;
+                      growl.success('Actualizaci&oacute;n correcta', {
+                        //referenceId: 334,
+                        ttl: 2500, disableCloseButton: false
+                      });
                     };
 
                   } else {
                     $scope.permissionToEdit = false;
                   }
+
+                  $scope.keypressCallback = function (e) {
+                     e.editing = false;
+                      e.originalValue = e.value;
+                      growl.success('Actualizaci&oacute;n correcta', {
+                        //referenceId: 334,
+                        ttl: 2500, disableCloseButton: false
+                      });
+                  };
                   
                 }]
             },            

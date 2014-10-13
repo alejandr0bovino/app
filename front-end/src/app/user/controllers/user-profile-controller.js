@@ -2,7 +2,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
 ])
 
-.controller( 'ProfileCtrl', function ProfileCtrl( $scope, $auth, User, alertService, $state, resA ) {  
+.controller( 'ProfileCtrl', function ProfileCtrl( $scope, $auth, User, growl, $state, resA ) {  
 
   if (!resA) {
     $state.go('user.login');
@@ -14,7 +14,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         $scope.user = data;
       })
       .error(function() {
-        alertService.add('danger', 'Unable to get user information', 5000);
+        growl.error("Unable to get user information"); 
       });
 
     $scope.updateUser = function() {
@@ -22,14 +22,14 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         displayName: $scope.user.displayName,
         email: $scope.user.email
       }).then(function() { 
-        alertService.add('success', 'Profile has been updated', 5000);
+        growl.success("Profile has been updated"); 
       });
     };
 
     $scope.link = function(provider) {
       $auth.link(provider)
         .then(function() {
-          alertService.add('success', 'You have successfully linked ' + provider + ' account', 5000);
+          growl.success('You have successfully linked <b>' + provider + '</b> account'); 
           switch(provider) {
             case 'facebook':
               $scope.user.facebook = 1;
@@ -45,7 +45,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         })
         .catch(function(response) {
           if (typeof response.data.message != 'undefined') {
-            alertService.add('danger', "eeee" + response.data.message, 5000);
+            growl.error("|||||||||||||||3" + response.data.message); 
           }
         });
     };
@@ -53,7 +53,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
     $scope.unlink = function(provider) {
       $auth.unlink(provider)
         .then(function() {        
-          alertService.add('success', 'You have successfully unlinked ' + provider + ' account', 5000);
+          growl.success('You have successfully unlinked <b>' + provider + '</b> account'); 
           switch(provider) {
             case 'facebook':
               $scope.user.facebook = null; 
@@ -67,7 +67,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
           }
         })
         .catch(function(response) {
-          alertService.add('danger', response.data ?  response.data.message : 'Could not unlink ' + provider + ' account', 5000);
+          growl.error(response.data ?  response.data.message : 'Could not unlink <b>' + provider + '</b> account');
         });
     };
 

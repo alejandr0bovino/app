@@ -2,7 +2,7 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
 
 ])
 
-.controller( 'SignupCtrl', function SignupCtrl( $scope, $auth, $state, resA, alertService, go ) {  
+.controller( 'SignupCtrl', function SignupCtrl( $scope, $auth, $state, growl, resA, go ) {  
   if (resA) {
     $state.go('user.profile');
   } else {
@@ -16,7 +16,8 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
         password: $scope.password
       })
       .then(function() {
-        alertService.add('success', 'You have successfully signed up: ' + $scope.email, 5000);
+        //alertService.add('success', 'You have successfully signed up: ' + $scope.email, 5000);
+         growl.success('You have successfully signed up: <b>' + $scope.email + '</b>');
 
         $state.go(go);
       });

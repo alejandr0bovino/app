@@ -20,14 +20,48 @@ angular.module( 'ngBoilerplate.page', [
 
   //$scope.initDate = new Date('2016-15-20');
   
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-  //$scope.format = $scope.formats[0];
+  // $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  // //$scope.format = $scope.formats[0];
+
+  // $scope.today = function() {
+  //   $scope.dt = new Date();
+  // };
+  // //$scope.today();
+
+  // $scope.clear = function () {
+  //   $scope.dt = null;
+  // };
+
+  // // Disable weekend selection
+  // $scope.disabled = function(date, mode) {
+  //   return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+  // };
+
+  // //min date
+  // $scope.singleModel = 1;
+  
+  // $scope.toggleMin = function() {
+  //   $scope.minDate = $scope.minDate ? null : new Date();
+  // };
+  // $scope.toggleMin();
+
+  // $scope.open = function($event) {
+  //   $event.preventDefault();
+  //   $event.stopPropagation();
+
+  //   $scope.opened = true;
+  // };
+
+  // $scope.dateOptions = {
+  //   formatYear: 'yy',
+  //   startingDay: 1
+  // };
+  $scope.singleModel = 1;
 
   $scope.today = function() {
     $scope.dt = new Date();
-    //$scope.dt = $filter('date')(Date.now());
   };
-  //$scope.today();
+  $scope.today();
 
   $scope.clear = function () {
     $scope.dt = null;
@@ -38,9 +72,6 @@ angular.module( 'ngBoilerplate.page', [
     return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
   };
 
-  //min date
-  $scope.singleModel = 1;
-  
   $scope.toggleMin = function() {
     $scope.minDate = $scope.minDate ? null : new Date();
   };
@@ -58,13 +89,13 @@ angular.module( 'ngBoilerplate.page', [
     startingDay: 1
   };
 
-
-
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
 
   /////////////////////////////
 
 
-$scope.oneAtATime = true;
+  $scope.oneAtATime = true;
 
   $scope.groups = [
     {
@@ -88,14 +119,6 @@ $scope.oneAtATime = true;
     isFirstOpen: true,
     isFirstDisabled: false
   };
-
-
-  //////////////////////
-
-
-
-
-
 
 
 })

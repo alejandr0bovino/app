@@ -17,7 +17,7 @@ body {
 
 
 .theme-section {
-  padding: 3em 0 4em;
+  padding: 3em 0 5em;
   min-height: 450px;
   //background-color: #fff;
 }
@@ -34,8 +34,8 @@ body {
   }
   .footer-inner {
     @extend .container;
-    padding-top: 20px;
-    padding-bottom: 40px;
+    padding-top: 2em;
+    padding-bottom: 3em;
   }
   
   .social {

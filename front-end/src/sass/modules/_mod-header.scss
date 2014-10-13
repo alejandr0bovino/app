@@ -19,7 +19,7 @@
     // min-height: 150px;
     // transform: skewY(-5deg);
     // padding-top: 20px;
-    padding: 3em 15px 2em;
+    padding: 4em 15px 2em;
   }
 }
 
@@ -28,12 +28,12 @@
   margin: 0;
 
   color: $brand-primary;
-  font-size: 60px;
+  font-size: 40px;
   font-family: 'Arvo', serif;  
-  font-weight: 700;
+  font-weight: 500;
 
   small {
-    color: $brand-primary;
+    color: darken($brand-primary, 15);
   }
 }
 

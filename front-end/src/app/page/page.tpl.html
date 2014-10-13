@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-sm-8">
 
-          <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+          <!-- <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
 
           <br>
 
@@ -43,7 +43,40 @@
           <button type="button" class="btn btn-sm btn-primary" ng-click="dt = '2009-08-24'">2009-08-24</button>
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <button type="button" class="btn btn-sm btn-primary" ng-click="clear()">Clear</button>
-          <button type="button" class="btn btn-sm btn-primary" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
+          <button type="button" class="btn btn-sm btn-primary" ng-click="toggleMin()" tooltip="After today restriction">Min date</button> -->
+
+          <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+
+
+          <div class="row">
+            <div class="col-md-4" style="padding-right: 0">
+              <div class="input-group">
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-inverse" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+                </span>
+              </div>
+
+            </div>
+
+            <div class="col-md-4">
+              |&nbsp;&nbsp;&nbsp;&nbsp;
+              <select class="form-control" ng-model="format" ng-options="f for f in formats" style="width: auto; display: inline"><option></option></select>
+            </div>
+
+          </div>
+
+          <br>
+          <br>
+
+          <button type="button" class="btn btn-sm btn-primary" ng-click="today()">Today</button>
+          &nbsp;
+          <button type="button" class="btn btn-sm btn-primary" ng-click="dt = '2009-08-24'">2009-08-24</button>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <button type="button" class="btn btn-sm btn-primary" ng-click="clear()">Clear</button>
+          &nbsp;
+          <button type="button" class="btn btn-sm btn-primary" ng-click="toggleMin()" ng-model="singleModel"
+            tooltip="After today restriction" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Min date</button>
         </div>
 
         <div class="col-sm-4">

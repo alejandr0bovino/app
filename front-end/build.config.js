@@ -73,9 +73,9 @@ module.exports = {
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
 
       'vendor/angular-ui-router/release/angular-ui-router.min.js',
-      //'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-permission/dist/angular-permission.js',
+      'vendor/angular-growl-v2/build/angular-growl.js',
 
       //'vendor/angular-animate/angular-animate.min.js',
       //'vendor/angular-animate/angular-animate.min.js.map',            
@@ -87,10 +87,10 @@ module.exports = {
       
 
       'vendor/satellizer/satellizer.min.js',
-      'vendor/angular-loading-bar/build/loading-bar.min.js'
+      'vendor/angular-loading-bar/build/loading-bar.min.js',
     ],
     css: [
-      //'vendor/angular-loading-bar/build/loading-bar.min.css'
+      //'vendor/angular-growl-v2/build/angular-growl.min.css'
     ],
     assets: [
     ]

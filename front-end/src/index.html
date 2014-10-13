@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="ngBoilerplate" ng-controller="AppCtrl">
   <head>
+    <meta charset="utf-8">
     <title ng-bind="pageTitle"></title>
 
     <!-- social media tags -->    
@@ -14,12 +15,13 @@
 
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic" rel="stylesheet">
 
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+    <link rel="stylesheet" href="<%= file %>" /><% }); %>
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
-    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+    <script src="<%= file %>"></script><% }); %>
   </head>
   <body>
     <header class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -111,12 +113,14 @@
       </div>
     </header>
     
-    <div class="mod-alert-msg">
+<!--     <div class="mod-alert-msg">
       <alert ng-repeat="alert in alerts"
         class="mod-alert-msg__anim"
         type="{{alert.type}}" close="alert.close()">
         <div class="container">{{alert.msg}}</div></alert>      
-    </div>
+    </div> -->
+
+    <div class="notification"><div growl></div></div>
     
     <section ui-view="main" class="fadeZ"></section>
 

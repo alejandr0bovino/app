@@ -10,19 +10,20 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.contacts',
   'ngBoilerplate.user',
   'ngBoilerplate.utils.service',
-  'ngBoilerplate.alert.service',
+  //'ngBoilerplate.alert.service',  
   'ngBoilerplate.authenticate.service',
   'ngBoilerplate.shell.service',
   'ngBoilerplate.user.service',
   'ui.router',
   'ngResource',
-  'permission'
+  'permission',
+  'angular-growl'
 ])
 
 .constant('apiUrl', 'http://backend.birds.codinglist.com/api')
 .constant("requireAuth", ['books'])
 
-.config( function myAppConfig (apiUrl, $stateProvider, $urlRouterProvider, $authProvider ) {    
+.config( function myAppConfig (apiUrl, $stateProvider, $urlRouterProvider, $authProvider, growlProvider ) {    
 
 
   $urlRouterProvider.otherwise('/home');  
@@ -78,10 +79,19 @@ angular.module( 'ngBoilerplate', [
     url: apiUrl + '/auth/twitter',
     type: '1.0'
   });
+
+  //
+
+  growlProvider.globalTimeToLive(5000);
+  //growlProvider.globalPosition('top-center');
+  growlProvider.globalDisableCountDown(true);
+  growlProvider.globalDisableCloseButton(true);
+  growlProvider.onlyUniqueMessages(false);
+
 })
 
-.run(['$rootScope', '$state', '$stateParams', 'Permission', 'User', '$q', 'authenticate',
-    function ($rootScope,   $state,   $stateParams, Permission, User, $q, authenticate) {
+.run(['$rootScope', '$state', '$stateParams', 'Permission', '$q', 'User',  'authenticate',
+    function ($rootScope,   $state,   $stateParams, Permission, $q, User, authenticate) {
 
       // It's very handy to add references to $state and $stateParams to the $rootScope
       // so that you can access them from any scope within your applications.For example,
