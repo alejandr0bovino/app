@@ -28,7 +28,7 @@
             <div class="panel-body">
               <ul class="list-unstyled">
                 <li ng-class="{ active: $state.includes('contacts.list') }">
-                  <a class="btn btn-link" ui-sref="contacts.list">All Contacts</a>
+                  <a class="btn btn-link" ui-sref="contacts.list" ng-click="pleaseLogin()">All Contacts</a>
                 </li>
                 <li>
                   <button class="btn btn-link" ng-click="goToRandom()">Show random contact</button>
@@ -49,7 +49,7 @@
             <div class="panel-body">
               <ul class="list-unstyled">
                 <li ng-repeat="contact in contacts | limitTo:2" ui-sref-active="active">
-                  <a class="btn btn-link" ui-sref="contacts.detail({contactId:contact.id})">{{contact.name}}</a>
+                  <a class="btn btn-link" ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
                 </li>
               </ul>
             </div>

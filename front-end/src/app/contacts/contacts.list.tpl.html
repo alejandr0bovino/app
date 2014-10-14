@@ -1,4 +1,4 @@
-<div class="panel panel-inverse">
+<div class="panel panel-inverse" id="contacts-list">
   <div class="panel-heading">
     <h3 class="panel-title"><i class="fa fa-male"></i> &nbsp;All contacts</h3>
   </div>
@@ -6,7 +6,7 @@
   <div class="panel-body">
     <ul class="list-unstyled">
       <li ng-repeat="contact in contacts">
-        <a class="btn btn-link" ui-sref="contacts.detail({contactId:contact.id})">{{contact.name}}</a>
+        <a class="btn btn-link" ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
       </li>
     </ul>    
   </div>

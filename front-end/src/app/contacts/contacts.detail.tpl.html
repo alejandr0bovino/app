@@ -1,4 +1,4 @@
-<div class="panel panel-inverse">
+<div class="panel panel-inverse contact-detail">
   <div class="panel-heading">
     <h3 style="margin: 0">{{contact.name}}  &nbsp;<small ui-view="tip"></small></h3>
   </div>
@@ -10,8 +10,11 @@
     
     <ul class="list">
       <li ng-repeat="item in contact.items">
-        <div ng-show="!permissionToEdit">
-          <label>{{item.type}}</label> {{item.value}}
+        <div ng-show="!permissionToEdit">          
+          <div class="form-group">
+            <label>{{item.type}}</label>
+            <input class="form-control" type="text" placeholder="{{item.value}}" disabled>
+          </div>
         </div>
 
         <div ng-show="permissionToEdit">

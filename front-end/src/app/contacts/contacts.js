@@ -14,22 +14,36 @@ angular.module('ngBoilerplate.contacts', [
           url: '/contacts',
           views: {
             "main": {
-              controller: ['$scope', '$state', 'contacts', 'utils',
-                function ( $scope,   $state,   contacts,   utils) {
+              controller: ['$scope', '$state', 'contacts', 'utils', 'authenticated', 'growl',
+                function ( $scope,   $state,   contacts,   utils, authenticated, growl) {
                   if (contacts) {                  
                     $scope.contacts = contacts;
                     $scope.goToRandom = function () {
-                      var randId = utils.newRandomKey($scope.contacts, "id", $state.params.contactId);
-                      $state.go('contacts.detail', { contactId: randId });
+                      if (!authenticated) {
+                        $scope.pleaseLogin();
+                      } else {
+                        var randId = utils.newRandomKey($scope.contacts, "id", $state.params.contactId);
+                        $state.go('contacts.detail', { contactId: randId });
+                      }
                     };
+
+                    if (!authenticated) { 
+                      $scope.pleaseLogin = function() {
+                        growl.warning('Please log in to see contacts', {
+                          ttl: 2500, disableCloseButton: false
+                        });
+                      };            
+                    }
                   }
                 }
               ],
               templateUrl: 'contacts/contacts.tpl.html'             
             }
           },
-
           resolve: {            
+            authenticated: function(authenticate){
+              return authenticate.islogged();
+            },
             contacts: function(contacts){
               return contacts.all();  
             }
@@ -41,7 +55,17 @@ angular.module('ngBoilerplate.contacts', [
 
         .state('contacts.list', {
           url: '',          
-          templateUrl: 'contacts/contacts.list.tpl.html'
+          templateUrl: 'contacts/contacts.list.tpl.html',
+          // controller: function(growl ,$scope,){
+          //   if (!authenticated) { 
+          //     $scope.pleaseLogin = function() {
+          //       growl.warning('Please log in to see contacts', {
+          //         ttl: 2500, disableCloseButton: false
+          //       });
+          //     };            
+          //   }
+          // },
+
         })
 
         .state('contacts.detail', {
@@ -55,7 +79,6 @@ angular.module('ngBoilerplate.contacts', [
                 }
               },
               controller: ['$scope', '$stateParams', 'utils', 'userRole', 'growl', '$document',
-
 
                 function (  $scope, $stateParams, utils, userRole, growl, $document) {
                   
@@ -98,29 +121,27 @@ angular.module('ngBoilerplate.contacts', [
                       
                     };
 
-                  } else {
-                    $scope.permissionToEdit = false;
-                  }
+                    $scope.keypressCallback = function (e) {
+                      if ( e.value !== e.originalValue ) {
+                        e.editing = false;                      
+                        e.originalValue = e.value;
+                        growl.success('Actualizaci&oacute;n correcta', {
+                          ttl: 2500, disableCloseButton: false
+                        });
 
-                  $scope.keypressCallback = function (e) {
-                    if ( e.value !== e.originalValue ) {
-                      e.editing = false;                      
-                      e.originalValue = e.value;
-                      growl.success('Actualizaci&oacute;n correcta', {
-                        ttl: 2500, disableCloseButton: false
-                      });
+                      }
+                    };
 
-                    }
-                  };
-
-                  angular.element($document[0].body).on('click',function(e) {
-                    $scope.contact.items.forEach(function (element) {
-                      element.editing = false;
+                    angular.element($document[0].body).on('click',function(e) {
+                      $scope.contact.items.forEach(function (element) {
+                        element.editing = false;
                         element.focused = false;
                         element.value = element.originalValue;
+                      });
                     });
-                  });
-
+                  } else {
+                    $scope.permissionToEdit = false;                    
+                  }
                   
                 }]
             },            
