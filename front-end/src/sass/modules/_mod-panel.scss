@@ -1,12 +1,11 @@
-
 .mod-panel {
   .panel {
     box-shadow: none;
   }
-      .panel-body {
-      //background-color: lighten($ps-bg, 10);
-      background-color: transparent;
-    }
+
+  .panel-body {
+    background-color: transparent;
+  }
     
   .panel-primary {
     background-color: transparent;
@@ -82,10 +81,6 @@
           @include transform(rotate(90deg));
         }
       }
-
-
-
-    
   }
 
   .panel-title {

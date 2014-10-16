@@ -16,6 +16,7 @@
     <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic" rel="stylesheet">
+    
 
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" href="<%= file %>" /><% }); %>
@@ -47,6 +48,7 @@
             <li ui-sref-active="active">
               <a href ui-sref="home">
                 <i class="fa fa-home"></i>
+                &nbsp;
                 Home
               </a>
             </li>
@@ -54,6 +56,7 @@
             <li ui-sref-active="active">
               <a href ui-sref="about">
                 <i class="fa fa-info-circle"></i>
+                &nbsp;
                 What is it?
               </a>
             </li>
@@ -61,6 +64,7 @@
             <li ui-sref-active="active">
               <a href ui-sref="page">
                 <i class="fa fa-book"></i>
+                &nbsp;
                 Page
               </a>
             </li>
@@ -68,6 +72,7 @@
             <li ng-class="{active: $state.includes('books')}">
               <a href ui-sref="books.list">
                 <i class="fa fa-book"></i>
+                &nbsp;
                 Books
               </a>
             </li>  
@@ -75,6 +80,7 @@
             <li ng-class="{active: $state.includes('contacts')}">
               <a href ui-sref="contacts.list">
                 <i class="fa fa-male"></i>
+                &nbsp;
                 Contacts
               </a>
             </li>                
@@ -84,6 +90,7 @@
             <li ng-if="!isAuthenticated()" ui-sref-active="active">
               <a href ui-sref="user.login">
                 <i class="fa fa-toggle-off"></i>
+                &nbsp;
                 Log in
               </a>
             </li>            
@@ -91,6 +98,7 @@
             <li ng-if="isAuthenticated()" ui-sref-active="active">
               <a href ui-sref="user.logout">
                 <i class="fa fa-toggle-on"></i>
+                &nbsp;
                 Log out
               </a>
             </li>
@@ -98,6 +106,7 @@
             <li ng-if="!isAuthenticated()" ui-sref-active="active">
               <a href ui-sref="user.signup">
                 <i class="fa fa-user"></i>
+                &nbsp;
                 Sign up
               </a>
             </li>
@@ -105,6 +114,7 @@
             <li ng-if="isAuthenticated()" ui-sref-active="active">
               <a href ui-sref="user.profile">
                 <i class="fa fa-user"></i>
+                &nbsp;
                 Profile
               </a>
             </li>

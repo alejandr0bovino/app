@@ -29,9 +29,18 @@ angular.module('ngBoilerplate.contacts', [
 
                     if (!authenticated) { 
                       $scope.pleaseLogin = function() {
-                        growl.warning('Please log in to see contacts', {
-                          ttl: 2500, disableCloseButton: false
+                        growl.warning('<a href="#/user/log-in" ui-sref="user.login">Please <b>log in</b> to see contacts</a>', {
+                          ttl: 3000000,
+                          onopen: function() {
+                            console.log('The message is open!');
+
+                          }
                         });
+
+                    
+
+
+
                       };            
                     }
                   }
@@ -56,16 +65,6 @@ angular.module('ngBoilerplate.contacts', [
         .state('contacts.list', {
           url: '',          
           templateUrl: 'contacts/contacts.list.tpl.html',
-          // controller: function(growl ,$scope,){
-          //   if (!authenticated) { 
-          //     $scope.pleaseLogin = function() {
-          //       growl.warning('Please log in to see contacts', {
-          //         ttl: 2500, disableCloseButton: false
-          //       });
-          //     };            
-          //   }
-          // },
-
         })
 
         .state('contacts.detail', {
@@ -115,7 +114,7 @@ angular.module('ngBoilerplate.contacts', [
                         e.originalValue = e.value;
 
                         growl.success('Actualizaci&oacute;n correcta', {
-                          ttl: 2500, disableCloseButton: false
+                          ttl: 3000
                         });  
                       }
                       
@@ -126,7 +125,7 @@ angular.module('ngBoilerplate.contacts', [
                         e.editing = false;                      
                         e.originalValue = e.value;
                         growl.success('Actualizaci&oacute;n correcta', {
-                          ttl: 2500, disableCloseButton: false
+                          ttl: 3000
                         });
 
                       }

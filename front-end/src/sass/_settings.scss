@@ -76,7 +76,7 @@ $font-path:         "fonts";
 
 
 
-$input-bg: $body-bg;
+$input-bg: $ps-bg;
 $input-color: $brand-primary;
 $input-border: transparent;
 
@@ -86,20 +86,20 @@ $input-border: transparent;
 ////////////////////////////////////////////////////////////////////////
 
 
-$navbar-default-bg: $body-bg;
+$navbar-default-bg: darken($ps-bg, 5);
 $navbar-default-link-color: $brand-primary;
 $navbar-default-link-hover-color: $brand-primary;
+$navbar-default-link-active-bg: darken($ps-bg, 10);
 $navbar-default-link-active-color: $brand-primary;
 
-$border-radius-base: 2px;
+
 $border-radius-small: 2px;
+$border-radius-base: 2px;
 $border-radius-large: 2px;
 
 $input-border-focus: #ccc;
 
-//$brand-success: $color-c;
 
-//$panel-default-heading-bg: $brand-primary;
 
 
 $link-color: $brand-primary;
@@ -107,12 +107,27 @@ $link-color: $brand-primary;
 $state-success-text: #fff;
 $state-success-bg: $brand-success;
 
+$state-danger-text: $brand-danger;
+
+$state-warning-text: #fff;
+$state-warning-bg: $brand-warning;
+
+
+
+
+
+
+
+
+
+
+
 //$state-danger-text: #fff;
 $state-danger-bg: lighten($brand-danger, 5);
 
 $hr-border:             $brand-primary;
 
-$pre-bg: $body-bg;
+$pre-bg: $ps-bg;
 $pre-border-color: $brand-primary;
 $pre-color: $brand-primary;
 
@@ -120,18 +135,18 @@ $list-group-bg: transparent;
 $list-group-border: $brand-primary;
 
 
-$btn-primary-color: $body-bg;
-$btn-danger-color: $body-bg;
-$btn-info-color: $body-bg;
+$btn-primary-color: $ps-bg;
+$btn-danger-color: $ps-bg;
+$btn-info-color: $ps-bg;
 
-$well-bg: lighten($body-bg, 10);
-
-
+$well-bg: lighten($ps-bg, 10);
 
 
 
 
-$dropdown-bg : $body-bg;
+
+
+$dropdown-bg : $ps-bg;
 $dropdown-border: $brand-primary;
 $dropdown-divider-bg : $brand-primary;
 
@@ -148,3 +163,13 @@ $dropdown-link-hover-color: $link-hover-color;
 
 $tooltip-bg: #fff;
 $tooltip-color: $ps-bg;
+
+
+
+$loading-bar-color: $brand-primary;
+
+
+
+
+// $alert-danger-bg: #fff;
+// $alert-warning-bg: $brand-warning;

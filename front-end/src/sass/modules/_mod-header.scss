@@ -1,25 +1,10 @@
 .header {
-  background: $brand-danger;
+  background-color: darken($ps-bg, 1);
   border-bottom: 5px solid $brand-primary;
-  //position: relative;
-  //overflow: hidden;
-
-  // &:before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 110%;
-  //   top: -10px;
-  //   transform: skewY(-5deg);
-  //   background: $brand-danger;
-  //   padding-top: 150px;
-  // }
-
+  
   div {
     @extend .container;
-    // min-height: 150px;
-    // transform: skewY(-5deg);
-    // padding-top: 20px;
-    padding: 4em 15px 2em;
+    padding: 4em 15px 1em;
   }
 }
 
@@ -29,7 +14,7 @@
 
   color: $brand-primary;
   font-size: 50px;
-  font-family: 'Arvo', serif;  
+  font-family: 'Roboto Condensed', sans-serif;
   font-weight: 500;
 
   small {

@@ -86,7 +86,7 @@ angular.module( 'ngBoilerplate', [
   //growlProvider.globalPosition('top-center');
   growlProvider.globalDisableCountDown(true);
   growlProvider.globalDisableCloseButton(true);
-  growlProvider.onlyUniqueMessages(false);
+  //growlProvider.onlyUniqueMessages(false);
 
 })
 

@@ -356,9 +356,28 @@ module.exports = function ( grunt ) {
           base: 'src/common',
           module: 'templates-ui',
           rename: function (modulePath) {
-            var moduleName = modulePath.replace('templates-ui/', '').replace('.html', '');
+            var moduleName = modulePath.replace('templates-ui/', '');//.replace('.html', '');
             //return 'template' + '/' + moduleName + '/' + moduleName + '.html';
-            return 'template' + '/' + moduleName + '.html';
+          
+            //grunt.log.write(">>>>>>>>>>>>>>>>>>>>>>>" + 'template '+ '/' + moduleName + '.html');
+
+            // if () {
+
+            // } else {
+            //   return 'template' + '/' + moduleName + '.html';
+            // }
+
+              var split = moduleName.substring(0, 5);
+
+              if (split == "growl") {
+                return 'templates' + '/' + moduleName;
+              } else {
+                return 'template' + '/' + moduleName;
+              }
+              
+
+
+             
           }
         },
         src: [ '<%= app_files.ctpl %>' ],

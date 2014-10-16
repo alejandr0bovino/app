@@ -5,16 +5,20 @@
 //
 
 html {
-  background-color: darken($ps-bg, 2);
+  background-color: darken($ps-bg, 5);
 }
 
 body {
   padding-top: 51px;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   //background-color: #eee;
 }
 
+hr {
+  border-top-color: desaturate(darken($brand-primary, 30), 20);
+}
 
 .theme-section {
   padding: 3em 0 5em;
@@ -27,7 +31,7 @@ body {
 
 .footer {
   color: desaturate(darken($brand-primary, 30), 20);
-  background-color: darken($ps-bg, 2);
+  background-color: darken($ps-bg, 5);
 
   a {
     color: desaturate(darken($brand-primary, 30), 20);
