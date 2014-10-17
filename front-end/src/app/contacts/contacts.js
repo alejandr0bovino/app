@@ -30,11 +30,7 @@ angular.module('ngBoilerplate.contacts', [
                     if (!authenticated) { 
                       $scope.pleaseLogin = function() {
                         growl.warning('<a href="#/user/log-in" ui-sref="user.login">Please <b>log in</b> to see contacts</a>', {
-                          ttl: 3000000,
-                          onopen: function() {
-                            console.log('The message is open!');
-
-                          }
+                          ttl: 3000
                         });
 
                     

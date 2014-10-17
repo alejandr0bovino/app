@@ -10,21 +10,28 @@ $ps-nav-text:     #374140;
 $ps-well-bg:      #374140;
 $ps-bg:           #1E1E20;
 
+
 $gray-darker:            lighten(#000, 13.5%); // #222
 $gray-dark:              lighten(#000, 20%);   // #333
 $gray:                   lighten(#000, 33.5%); // #555
 $gray-light:             lighten(#000, 46.7%); // #777
 $gray-lighter:           lighten(#000, 93.5%); // #eee
 
-//$brand-primary:         #83aca0;
-$brand-primary:         #95BFB3;
 
+$brand-primary:         #95BFB3;
 $brand-success:         #5cb85c;
 $brand-info:            darken(desaturate(#5bc0de, 20), 10);
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
 
+
+/////////////////////////////////////////////
+
+
+
+$ps-bg-dark: darken($ps-bg, 5);
+$brand-primary-dark: desaturate(darken($brand-primary, 30), 20);
 
 
 
@@ -37,13 +44,16 @@ $brand-danger:          #d9534f;
 
 
 
-$body-bg:               $ps-bg;
+$body-bg:               transparent;
 $text-color:            $brand-primary;
-$link-color:            $ps-link-text;
+$link-color:            $brand-primary;
 $link-hover-color:     $link-color;
 
 
+$text-muted: $brand-primary-dark;
 
+
+//$headings-font-family: plexifont_bvregular;
 
 /////////////////////////////////////////////
 
@@ -86,7 +96,7 @@ $input-border: transparent;
 ////////////////////////////////////////////////////////////////////////
 
 
-$navbar-default-bg: darken($ps-bg, 5);
+$navbar-default-bg: $ps-bg;
 $navbar-default-link-color: $brand-primary;
 $navbar-default-link-hover-color: $brand-primary;
 $navbar-default-link-active-bg: darken($ps-bg, 10);
@@ -127,8 +137,8 @@ $state-danger-bg: lighten($brand-danger, 5);
 
 $hr-border:             $brand-primary;
 
-$pre-bg: $ps-bg;
-$pre-border-color: $brand-primary;
+$pre-bg: transparent;
+$pre-border-color: $brand-primary-dark;;
 $pre-color: $brand-primary;
 
 $list-group-bg: transparent;
@@ -139,7 +149,8 @@ $btn-primary-color: $ps-bg;
 $btn-danger-color: $ps-bg;
 $btn-info-color: $ps-bg;
 
-$well-bg: lighten($ps-bg, 10);
+$well-bg: transparent;
+$well-border: $brand-primary-dark;
 
 
 

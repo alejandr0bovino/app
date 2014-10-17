@@ -1,0 +1,12 @@
+.login-to-continue {
+  // width: 50%;
+  // margin: 0 auto;
+
+  p {
+    text-align: center;
+  }
+
+  .btn {
+    @extend .btn-block;
+  }
+}

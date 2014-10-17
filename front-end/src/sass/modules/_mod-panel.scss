@@ -6,28 +6,33 @@
   .panel-body {
     background-color: transparent;
   }
+
+  
     
   .panel-primary {
-    background-color: transparent;
+    background-color: $ps-bg-dark;
+    border-color: $brand-primary-dark;
+  
+    @include transition((
+      border-color $transition-duration0 $transition-function,
+      color $transition-duration0 $transition-function
+    ));
 
-    //border-color: $gray-lighter;
-    //border: none;
-      @include transition((
-        border-color $transition-duration0 $transition-function,
-        color $transition-duration0 $transition-function
-      ));
+    @include transition(
+      opacity $transition-duration0 $transition-function      
+    );
 
-    .panel-heading {
-      // @include transition((
-      //   background-color $transition-duration0 $transition-function,
-      //   color $transition-duration0 $transition-function
-      // ));
+    > .panel-heading {      
       background-color: transparent;
       @include transition(color $transition-duration0 $transition-function);
       color: $brand-primary;
+
+      + .panel-collapse > .panel-body {
+        border-top-color: $brand-primary-dark
+      }
     }
 
-    .panel-body {
+    .panel-body {      
       @include transition((
         border-color $transition-duration0 $transition-function,
         color $transition-duration0 $transition-function
@@ -36,51 +41,24 @@
 
 
     &.text-muted {
-       // 
-        // color: lighten($gray-light, 30);
-        //opacity: .25;
+      cursor: default;
+      color: $brand-primary;
+      //border-color: darken($brand-primary, 30);
+      opacity: .65;
+
+      .panel-body,
+      .panel-title a {
         cursor: default;
-        border-color: darken($brand-primary, 30);
-          
-        .panel-body,
-        .panel-title a {
-          cursor: default;
-        }
-
-        > .panel-heading {
-           //background-color: lighten($ps-bg, 10);
-
-           background-color: transparent;
-           //border-color: $brand-primary;
-           color: darken($brand-primary, 30);
-
-           + .panel-collapse > .panel-body {
-            border-top-color: darken($brand-primary, 30);          
-          }
-        }
-
-        
-
-        .panel-body {
-          color: darken($brand-primary, 30);
-        }
-    }
-
-
-    // &:not(.text-muted):not(.is-open) > .panel-heading:hover {
-    //     //background-color: darken($navbar-default-bg, 3.25%);
-    //     //border-color: darken($panel-default-border, 5);
-    //   }
-
-    &.is-open > .panel-heading {
-        //background-color: $navbar-default-link-active-bg;
-        //border-color: darken($panel-default-border, 10);
-        border: none;
-
-        .panel-title a::before {
-          @include transform(rotate(90deg));
-        }
       }
+    }    
+
+    &.is-open > .panel-heading {  
+      border: none;
+
+      .panel-title a::before {
+        @include transform(rotate(90deg));
+      }
+    }
   }
 
   .panel-title {
@@ -88,7 +66,6 @@
       cursor: pointer;
       text-decoration: none;
       display: block;
-      //padding: 10px 15px;
 
       &::before {
         @extend %fa;

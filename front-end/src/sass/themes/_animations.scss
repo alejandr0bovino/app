@@ -1,14 +1,11 @@
 
 
 .fadeZoom.ng-enter {
-  @include animation-duration(1s);
+  @include animation-duration(.5s);
   @include animation-name(zoomIn);
 }
 
-// .fadeZoomFadeDown.ng-enter {
-//   @include animation-duration(1s);
-//   @include animation-name(zoomIn);
-// }
+
 
 
 @-webkit-keyframes zoomIn {

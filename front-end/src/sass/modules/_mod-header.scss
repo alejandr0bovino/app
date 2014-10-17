@@ -1,24 +1,24 @@
 .header {
-  background-color: darken($ps-bg, 1);
-  border-bottom: 5px solid $brand-primary;
+  background-color: $ps-bg-dark;
+  border-bottom: 1px solid $brand-primary;
   
   div {
     @extend .container;
-    padding: 4em 15px 1em;
+    padding: 4em 15px 2em;
   }
 }
 
 .page-header {
   padding: 0;
   margin: 0;
-
+  line-height: 1;
   color: $brand-primary;
-  font-size: 50px;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 70px;
+  font-family: plexifont_bvregular;
   font-weight: 500;
 
   small {
-    color: darken($brand-primary, 15);
+    color: $brand-primary;
   }
 }
 
