@@ -9,7 +9,7 @@
 
   
     
-  .panel-primary {
+  .panel-inverse {
     background-color: $ps-bg-dark;
     border-color: $brand-primary-dark;
   
@@ -43,7 +43,6 @@
     &.text-muted {
       cursor: default;
       color: $brand-primary;
-      //border-color: darken($brand-primary, 30);
       opacity: .65;
 
       .panel-body,

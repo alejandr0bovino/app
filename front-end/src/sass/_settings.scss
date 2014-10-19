@@ -9,16 +9,21 @@ $ps-link-text:    #83aca0;
 $ps-nav-text:     #374140;
 $ps-well-bg:      #374140;
 $ps-bg:           #1E1E20;
+  $ps-bg-dark: darken($ps-bg, 5); 
 
-
-$gray-darker:            lighten(#000, 13.5%); // #222
-$gray-dark:              lighten(#000, 20%);   // #333
 $gray:                   lighten(#000, 33.5%); // #555
-$gray-light:             lighten(#000, 46.7%); // #777
-$gray-lighter:           lighten(#000, 93.5%); // #eee
+  $gray-darker:            lighten(#000, 13.5%); // #222
+  $gray-dark:              lighten(#000, 20%);   // #333
+
+  $gray-light:             lighten(#000, 46.7%); // #777
+  $gray-lighter:           lighten(#000, 93.5%); // #eee
 
 
 $brand-primary:         #95BFB3;
+  $brand-primary-light: desaturate(lighten($brand-primary, 20), 20);
+  $brand-primary-dark: desaturate(darken($brand-primary, 30), 20);
+
+
 $brand-success:         #5cb85c;
 $brand-info:            darken(desaturate(#5bc0de, 20), 10);
 $brand-warning:         #f0ad4e;
@@ -30,8 +35,8 @@ $brand-danger:          #d9534f;
 
 
 
-$ps-bg-dark: darken($ps-bg, 5);
-$brand-primary-dark: desaturate(darken($brand-primary, 30), 20);
+
+
 
 
 
@@ -113,7 +118,7 @@ $navbar-default-bg: $ps-bg-dark;
 $navbar-default-link-color: $brand-primary;
 $navbar-default-link-hover-color: $brand-primary;
 $navbar-default-link-active-bg: transparent;
-$navbar-default-link-active-color: $brand-primary;
+$navbar-default-link-active-color: $brand-primary-light;
 $navbar-default-border: $brand-primary-dark;
 
 $border-radius-small: 2px;

@@ -1,11 +1,12 @@
-<div class="panel panel-primary" ng-class="{'text-muted': isDisabled, 'is-open': isOpen}">
+<div class="panel panel-inverse" ng-class="{'text-muted': isDisabled, 'is-open': isOpen}">
   <div class="panel-heading">
-    <h4 class="panel-title">
+    <h3 class="panel-title">
       <a ng-click="toggleOpen()" accordion-transclude="heading" accordion-transclude="heading">
         {{heading}}
       </a>
-    </h4>
+    </h3>
   </div>
+  
   <div class="panel-collapse" collapse="!isOpen">
    <div class="panel-body" ng-transclude></div>
   </div>
