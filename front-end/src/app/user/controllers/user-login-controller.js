@@ -7,7 +7,7 @@ angular.module( 'ngBoilerplate.user.LoginCtrl', [
     $state.go('user.profile');    
   } else {
     //$scope.$parent.title = "Log in";
-    $scope.$parent.title = "Welcome (back)";
+    $scope.$parent.title = "Welcome back";
 
     $scope.login = function() {
       $auth.login({ email: $scope.email, password: $scope.password })

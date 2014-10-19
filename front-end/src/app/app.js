@@ -21,6 +21,8 @@ angular.module( 'ngBoilerplate', [
 ])
 
 .constant('apiUrl', 'http://backend.birds.codinglist.com/api')
+//.constant('apiUrl', 'http://backend.themazechanges.com/api')
+
 .constant("requireAuth", ['books'])
 
 .config( function myAppConfig (apiUrl, $stateProvider, $urlRouterProvider, $authProvider, growlProvider ) {    

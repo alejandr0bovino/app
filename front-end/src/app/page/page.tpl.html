@@ -2,8 +2,7 @@
   <div class="header">
     <div>
       <h1 class="page-header">
-        UI Bootstrap
-        <small>Angular js</small>
+        Angular js, Laravel
       </h1>
     </div>
   </div>
@@ -59,16 +58,16 @@
               </accordion-group>
               
               <accordion-group heading="Dynamic Body Content">  
-                <p>The body of the accordion group grows to fit the contents</p>
-                <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-                <br>
-                <div ng-repeat="item in items">{{item}}</div>
-
+                <p>The body of the accordion group grows to fit the contents</p>                
+                <button class="btn btn-inverse btn-sm" ng-click="addItem()">Add Item</button>
+                <div style="margin-top: 10px">
+                  <span ng-repeat="item in items"> {{item}} </span>
+                </div>
               </accordion-group>
               
               <accordion-group is-open="status.open">
                 <accordion-heading>
-                  I can have markup, too! <i  class="pull-right fa" ng-class="{'fa-arrow-circle-o-up': status.open, 'fa-arrow-circle-o-down': !status.open}"></i>
+                  I can have markup, too! <i  class="pull-right fa" style="margin-top: 2px" ng-class="{'fa-angle-up': status.open, 'fa-angle-down': !status.open}"></i>
                 </accordion-heading>
                 This is just some content to illustrate fancy headings.
               </accordion-group>

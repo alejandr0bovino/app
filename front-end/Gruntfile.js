@@ -276,6 +276,7 @@ module.exports = function ( grunt ) {
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.sass %>'
         },
         options: {
+          sourcemap: 'none',
           style: 'compressed'
         }
       }

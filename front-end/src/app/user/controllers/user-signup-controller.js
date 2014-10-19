@@ -7,7 +7,7 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
     $state.go('user.profile');
   } else {
     //$scope.$parent.title = "Sign up";
-    $scope.$parent.title = "Welcome (back)";
+    $scope.$parent.title = "Welcome back";
 
     $scope.signup = function() {
       $auth.signup({

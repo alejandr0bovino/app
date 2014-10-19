@@ -4,20 +4,11 @@
     <meta charset="utf-8">
     <title ng-bind="pageTitle"></title>
 
-    <!-- social media tags -->    
-    <meta property="og:title" content="ngBoilerplate" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://bit.ly/ngBoilerplate" />
-    <meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />
-    <meta property="og:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- font awesome from BootstrapCDN -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">    
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto+Condensed:700' rel='stylesheet' type='text/css'>
     
-
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" href="<%= file %>" /><% }); %>
 
@@ -29,26 +20,20 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
-          ng-click="menuCollapsed = ! menuCollapsed">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-         <!--  <div class="navbar-brand">
-            <a href ui-sref="home">
-              <img src="assets/img/navbar-brand.png">
-            </a>
-          </div> -->
+            ng-click="menuCollapsed = ! menuCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
 
         <div class="navbar-collapse collapse" collapse="menuCollapsed">
           <ul class="nav navbar-nav">
             <li ui-sref-active="active">
               <a href ui-sref="home">
-                <i class="fa fa-home"></i>
-                &nbsp;
+                <!-- <i class="fa fa-home"></i>
+                &nbsp; -->
                 Home
               </a>
             </li>
@@ -63,16 +48,16 @@
             
             <li ui-sref-active="active">
               <a href ui-sref="page">
-                <i class="fa fa-book"></i>
-                &nbsp;
+                <!-- <i class="fa fa-book"></i>
+                &nbsp; -->
                 Page
               </a>
             </li>
 
             <li ng-class="{active: $state.includes('books')}">
               <a href ui-sref="books.list">
-                <i class="fa fa-book"></i>
-                &nbsp;
+                <!-- <i class="fa fa-book"></i>
+                &nbsp; -->
                 Books
               </a>
             </li>  
@@ -123,18 +108,11 @@
       </div>
     </header>
     
-<!--     <div class="mod-alert-msg">
-      <alert ng-repeat="alert in alerts"
-        class="mod-alert-msg__anim"
-        type="{{alert.type}}" close="alert.close()">
-        <div class="container">{{alert.msg}}</div></alert>      
-    </div> -->
-
     <div class="notification"><div growl></div></div>
     
     <section ui-view="main" class="fadeZ"></section>
 
-    <footer class="footer">      
+    <footer class="footer">
       <div class="footer-inner">
         <ul class="social">
           <li><i class="fa fa-google-plus"></i></li>

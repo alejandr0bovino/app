@@ -53,7 +53,7 @@ $link-hover-color:     $link-color;
 $text-muted: $brand-primary-dark;
 
 
-//$headings-font-family: plexifont_bvregular;
+//$headings-font-family:;
 
 /////////////////////////////////////////////
 
@@ -80,6 +80,19 @@ $font-path:         "fonts";
 
 
 
+// $font-size-base:        14px;
+// $line-height-base:      1.4219;
+// $line-height-small:     1.4928;
+
+
+$font-size-base:        16px;
+$line-height-base:      1.625;
+$line-height-small:     1.706;
+
+// $font-size-base:        18px;
+// $line-height-base:      1.8281;
+// $line-height-small:     1.9192;
+
 
 
 
@@ -96,12 +109,12 @@ $input-border: transparent;
 ////////////////////////////////////////////////////////////////////////
 
 
-$navbar-default-bg: $ps-bg;
+$navbar-default-bg: $ps-bg-dark;
 $navbar-default-link-color: $brand-primary;
 $navbar-default-link-hover-color: $brand-primary;
-$navbar-default-link-active-bg: darken($ps-bg, 10);
+$navbar-default-link-active-bg: transparent;
 $navbar-default-link-active-color: $brand-primary;
-
+$navbar-default-border: $brand-primary-dark;
 
 $border-radius-small: 2px;
 $border-radius-base: 2px;

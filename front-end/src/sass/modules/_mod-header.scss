@@ -13,9 +13,10 @@
   margin: 0;
   line-height: 1;
   color: $brand-primary;
-  font-size: 70px;
-  font-family: plexifont_bvregular;
-  font-weight: 500;
+  text-shadow: 0 0 15px $brand-primary;
+  font-size: 3em;
+  //font-family: plexifont_bvregular;
+  font-family: 'Roboto Slab', serif;
 
   small {
     color: $brand-primary;
