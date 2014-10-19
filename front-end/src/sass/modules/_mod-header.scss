@@ -1,25 +1,22 @@
-.header {
-  background-color: $ps-bg-dark;
+.theme-header {  
+  //background-color: $ps-bg-dark;
   border-bottom: 1px solid $brand-primary;
   
-  div {
-    @extend .container;
-    padding: 4em 15px 2em;
-  }
-}
+    
 
-.page-header {
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-  color: $brand-primary;
-  text-shadow: 0 0 15px $brand-primary;
-  font-size: 3em;
-  //font-family: plexifont_bvregular;
-  font-family: 'Roboto Slab', serif;
-
-  small {
+  h1 {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
     color: $brand-primary;
+    text-shadow: 0 0 15px $brand-primary;
+    font-size: 3em;
+    //font-family: plexifont_bvregular;
+    font-family: 'Roboto Slab', serif;
+
+    small {
+      color: $brand-primary;
+    }
   }
 }
 
@@ -27,3 +24,8 @@
 
 
 
+.theme-header__inner {
+//@extend .container;
+  padding: 4em 0 1.5em;
+  position :relative;
+}

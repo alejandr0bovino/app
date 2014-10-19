@@ -30,7 +30,7 @@ angular.module( 'ngBoilerplate.home', [
         templateUrl: 'home/home.tpl.html'
       }
     },
-    data:{ pageTitle: 'Home' }
+    data:{ pageTitle: 'Home', headerTitle: 'The Maze changes' }
   });
 })
 

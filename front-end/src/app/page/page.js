@@ -12,7 +12,7 @@ angular.module( 'ngBoilerplate.page', [
         templateUrl: 'page/page.tpl.html'
       }
     },
-    data:{ pageTitle: 'Page' }
+    data:{ pageTitle: 'Page', headerTitle: 'Angular js, Laravel' }
   });
 })
 

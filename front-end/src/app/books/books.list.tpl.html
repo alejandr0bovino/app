@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-8">
-
+    <div class="mod-panel">
       <accordion>      
         <accordion-group heading="{{genre.name}}" ng-repeat="genre in genres" is-disabled="!genre.books.length">        
           <ul ng-show="genre.books.length">
@@ -12,7 +12,7 @@
           </ul>
         </accordion-group>
       </accordion>
-
+    </div>
   </div>
   
   <div class="col-sm-4">

@@ -31,7 +31,8 @@ angular.module( 'ngBoilerplate.books', [
             }
           },
           data:{
-            pageTitle: 'Books'
+            pageTitle: 'Books',
+            headerTitle: 'Books',
             // permissions: {
             //   only: ['anonymous']
             // }

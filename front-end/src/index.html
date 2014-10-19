@@ -17,8 +17,10 @@
   </head>
   <body body-click>
     <header class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
+      <!-- <div class="container"> -->
         <div class="navbar-header">
+          <a href="#menu-toggle" class="btn btn-default" ng-click="autoScroll = !autoScroll">menu</a>
+
           <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
             ng-click="menuCollapsed = ! menuCollapsed">
             <span class="sr-only">Toggle navigation</span>
@@ -29,7 +31,7 @@
         </div>
 
         <div class="navbar-collapse collapse" collapse="menuCollapsed">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav">          
             <li ui-sref-active="active">
               <a href ui-sref="home">
                 <!-- <i class="fa fa-home"></i>
@@ -105,11 +107,86 @@
             </li>
           </ul>
         </div>
-      </div>
+      <!-- </div> -->
     </header>
-    
-    <div class="notification"><div growl></div></div>
-    
+
+    <div id="wrapper" ng-class="{'toggled': autoScroll}">
+      <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li>
+          <a href="#">Shortcuts</a>
+        </li>
+        <li>
+          <a href="#">Overview</a>
+        </li>
+        <li>
+          <a href="#">Events</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Services</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+      </div>
+
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+
+
+            <div class="col-lg-12">
+              <div class="theme-header">
+                <div class="theme-header__inner">
+                  <h1 ng-bind-html="headerTitle"></h1>
+                  <div class="notification"><div growl></div></div>
+                </div>
+              </div>
+              
+              <section ui-view="main" class="fadeZ"></section>
+
+               <footer class="footer">
+                <div class="footer-inner">
+                  <ul class="social">
+                    <li><i class="fa fa-google-plus"></i></li>
+                    <li><i class="fa fa-twitter"></i></li>
+                    <li><i class="fa fa-linkedin"></i></li>
+                    <li><i class="fa fa-github"></i></li>
+                  </ul>
+
+                  <p>
+                    (c) 2013 <a href="http://www.joshdavidmiller.com">Josh David Miller</a>. 
+                    <a href="http://github.com/ngbp/ngbp/fork_select">Fork this</a>
+                    to kickstart your next project.
+                    <br />
+                    ngbp is based on
+                    <a href="http://www.angularjs.org">AngularJS</a>,
+                    <a href="http://getbootstrap.com">Bootstrap</a>, 
+                    <a href="http://angular-ui.github.com/bootstrap">UI Bootstrap</a>,
+                    and 
+                    <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>.        
+                  </p>
+                </div>
+              </footer>
+            </div>
+
+        </div>
+      </div>
+    </div>
+   <!--    
+    <div class="theme-header">
+      <div class="theme-header__inner">
+        <h1 ng-bind-html="headerTitle"></h1>
+        <div class="notification"><div growl></div></div>
+      </div>
+    </div>
+
     <section ui-view="main" class="fadeZ"></section>
 
     <footer class="footer">
@@ -134,6 +211,6 @@
           <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>.        
         </p>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>

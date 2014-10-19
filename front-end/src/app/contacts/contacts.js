@@ -54,7 +54,8 @@ angular.module('ngBoilerplate.contacts', [
             }
           },   
           data:{
-            pageTitle: 'Contacts'            
+            pageTitle: 'Contacts',
+            headerTitle: 'Contacts'    
           }
         })
 

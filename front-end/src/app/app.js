@@ -3,6 +3,7 @@ angular.module( 'ngBoilerplate', [
   'templates-ui',  
   'angular-loading-bar',
   'ngAnimate',
+  'ngSanitize',
   'ngBoilerplate.home',
   'ngBoilerplate.about',
   'ngBoilerplate.books',
@@ -148,11 +149,14 @@ angular.module( 'ngBoilerplate', [
   ]
 )
 
-.controller( 'AppCtrl', function AppCtrl ( $state, $scope, $auth, shell, requireAuth, $timeout ) {
-  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-    if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
-    }
+.controller( 'AppCtrl', function AppCtrl ( $scope, $auth, shell, requireAuth, $document ) {
+  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){    
+    $scope.pageTitle = angular.isDefined( toState.data.pageTitle ) ?
+      toState.data.pageTitle + ' | ngBoilerplate' :
+      toState.data.pageTitle;
+    $scope.headerTitle = angular.isDefined( toState.data.headerTitle ) ?
+      toState.data.headerTitle :
+      toState.data.pageTitle;
 
     var currentState = toState.name.split('.', 1);
 
@@ -171,7 +175,13 @@ angular.module( 'ngBoilerplate', [
     return $auth.isAuthenticated();
   };
 
-  
+  //
+  // var elem = $document[0].querySelectorAll('#elem');
+  // var wrapper = $document[0].querySelectorAll('#wrapper');
+
+  // angular.element(elem).on('click',function(e) {
+  //   alert("sldfj");
+  // });
 
   //
 
