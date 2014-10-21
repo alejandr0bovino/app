@@ -14,7 +14,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         $scope.user = data;
       })
       .error(function() {
-        growl.error("Unable to get user information"); 
+        growl.error("Unable to get information"); 
       });
 
     $scope.updateUser = function() {
@@ -22,14 +22,14 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         displayName: $scope.user.displayName,
         email: $scope.user.email
       }).then(function() { 
-        growl.success("Profile has been updated"); 
+        growl.success("Profile updated"); 
       });
     };
 
     $scope.link = function(provider) {
       $auth.link(provider)
         .then(function() {
-          growl.success('You have successfully linked <b>' + provider + '</b> account'); 
+          growl.success('Linked <b>' + provider + '</b> account'); 
           switch(provider) {
             case 'facebook':
               $scope.user.facebook = 1;
@@ -45,7 +45,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         })
         .catch(function(response) {
           if (typeof response.data.message != 'undefined') {
-            growl.error("|||||||||||||||3" + response.data.message); 
+            growl.error(response.data.message); 
           }
         });
     };
@@ -53,7 +53,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
     $scope.unlink = function(provider) {
       $auth.unlink(provider)
         .then(function() {        
-          growl.success('You have successfully unlinked <b>' + provider + '</b> account'); 
+          growl.success('Unlinked <b>' + provider + '</b> account'); 
           switch(provider) {
             case 'facebook':
               $scope.user.facebook = null; 

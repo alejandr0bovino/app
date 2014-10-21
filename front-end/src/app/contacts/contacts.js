@@ -29,9 +29,10 @@ angular.module('ngBoilerplate.contacts', [
 
                     if (!authenticated) { 
                       $scope.pleaseLogin = function() {
-                        growl.warning('<a href="#/user/log-in" ui-sref="user.login">Please <b>log in</b> to see contacts</a>', {
-                          ttl: 3000
-                        });
+                        // growl.warning('<a href="#/user/log-in" ui-sref="user.login">Please <b>log in</b> to see contacts</a>', {
+                        //   ttl: 3000
+                        // });
+                        growl.warning('<a href="#/user/log-in" ui-sref="user.login">Please <b>log in</b> to see contacts</a>');
 
                     
 
@@ -160,7 +161,8 @@ angular.module('ngBoilerplate.contacts', [
 )
 
 
-.directive('syncFocus', function($timeout, $rootScope) {
+//.directive('syncFocus', function($timeout, $rootScope) {
+.directive('syncFocus', function($timeout) {
   return {
     restrict: 'A',
     scope: {

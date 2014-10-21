@@ -37,7 +37,15 @@ angular.module( 'ngBoilerplate.home', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $sce ) {
+    $scope.config = {
+      sources: [
+          {src: $sce.trustAsResourceUrl("assets/video/matrix.mp4"), type: "video/mp4"}
+          //{src: $sce.trustAsResourceUrl("http://www.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
+          //{src: $sce.trustAsResourceUrl("http://www.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
+      ],     
+      autoPlay: true
+  };
 })
 
 ;

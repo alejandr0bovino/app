@@ -1,6 +1,6 @@
 .theme-header {  
   //background-color: $ps-bg-dark;
-  border-bottom: 1px solid $brand-primary;
+  border-bottom: 1px solid $brand-primary-dark;
   
     
 
@@ -9,10 +9,11 @@
     margin: 0;
     line-height: 1;
     color: $brand-primary;
-    text-shadow: 0 0 15px $brand-primary;
-    font-size: 3em;
+    //text-shadow: 0 0 10px $brand-primary-dark;
+    //font-size: $font-size-h2;
     //font-family: plexifont_bvregular;
-    font-family: 'Roboto Slab', serif;
+    //font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
 
     small {
       color: $brand-primary;
@@ -26,6 +27,6 @@
 
 .theme-header__inner {
 //@extend .container;
-  padding: 4em 0 1.5em;
+  padding: 2rem 1rem 1rem;
   position :relative;
 }

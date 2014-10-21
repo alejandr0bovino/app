@@ -51,6 +51,7 @@ module.exports = {
       'vendor/angular-loading-bar/build/loading-bar.min.js',
 
       'vendor/angular-sanitize/angular-sanitize.js',
+      'vendor/videogular/videogular.min.js',
     ],
     css: [
       //'vendor/angular-growl-v2/build/angular-growl.min.css'

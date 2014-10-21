@@ -1,13 +1,11 @@
-<div class="books">    
-  <section class="theme-section">
-    <div class="theme-section__inner">
-      <div ng-if="!isAuthenticated()">  
-        <div ng-include src="'includes/login.continue.tpl.html'"></div>
-      </div>
-
-      <div ng-if="isAuthenticated()">
-        <div class="fadeZoom" ui-view></div>
-      </div>      
+<section class="theme-section books">
+  <div class="theme-section__inner">
+    <div ng-if="!isAuthenticated()">  
+      <div ng-include src="'includes/login.continue.tpl.html'"></div>
     </div>
-  </section>
-</div>  
+
+    <div ng-if="isAuthenticated()">
+      <div class="fadeZoom" ui-view></div>
+    </div>      
+  </div>
+</section>

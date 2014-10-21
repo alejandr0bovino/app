@@ -26,7 +26,7 @@ class BookController extends BaseController {
 
         // }))->get();
 
-sleep(1);
+sleep(2);
 
         $genres = BookGenre::with('books')->get();
         return Response::json($genres);

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">    
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto+Condensed:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400' rel='stylesheet' type='text/css'>
     
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" href="<%= file %>" /><% }); %>
@@ -15,34 +15,40 @@
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script src="<%= file %>"></script><% }); %>
   </head>
-  <body body-click>
+  <body body-click ng-class="{view_home: $state.includes('home')}">
+
+    
     <header class="navbar navbar-default navbar-fixed-top" role="navigation">
       <!-- <div class="container"> -->
-        <div class="navbar-header">
-          <a href="#menu-toggle" class="btn btn-default" ng-click="autoScroll = !autoScroll">menu</a>
+        <div class="navbar-header" ng-class="{'toggled': !toggleLeftBar}">
 
-          <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+          <button class="navbar-toggle navbar-toggle-left" style="display:block;float:left" ng-click="toggleLeftBar = !toggleLeftBar" stop-event='click'>
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+
+          <ul class="nav navbar-nav">
+            <li ui-sref-active="active">
+              <a href ui-sref="home">
+                <i class="fa fa-ambulance"></i>
+                &nbsp;
+                Home
+              </a>
+            </li>
+          </ul>
+          
+          <button class="navbar-toggle navbar-toggle-right" ng-init="menuCollapsed = true"
             ng-click="menuCollapsed = ! menuCollapsed">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <i class="fa fa-bars"></i>
           </button>
         </div>
 
         <div class="navbar-collapse collapse" collapse="menuCollapsed">
-          <ul class="nav navbar-nav">          
+          <ul class="nav navbar-nav">                      
             <li ui-sref-active="active">
-              <a href ui-sref="home">
-                <!-- <i class="fa fa-home"></i>
-                &nbsp; -->
-                Home
-              </a>
-            </li>
-            
-            <li ui-sref-active="active">
-              <a href ui-sref="about">
-                <i class="fa fa-info-circle"></i>
+              <a href ui-sref="about">                
+                <i class="fa fa-question-circle"></i>
                 &nbsp;
                 What is it?
               </a>
@@ -50,27 +56,20 @@
             
             <li ui-sref-active="active">
               <a href ui-sref="page">
-                <!-- <i class="fa fa-book"></i>
-                &nbsp; -->
+                <i class="fa fa-try"></i>
+                &nbsp;
                 Page
               </a>
             </li>
 
             <li ng-class="{active: $state.includes('books')}">
               <a href ui-sref="books.list">
-                <!-- <i class="fa fa-book"></i>
-                &nbsp; -->
+                <i class="fa fa-book"></i>
+                &nbsp;
                 Books
               </a>
             </li>  
-
-            <li ng-class="{active: $state.includes('contacts')}">
-              <a href ui-sref="contacts.list">
-                <i class="fa fa-male"></i>
-                &nbsp;
-                Contacts
-              </a>
-            </li>                
+               
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
@@ -102,7 +101,8 @@
               <a href ui-sref="user.profile">
                 <i class="fa fa-user"></i>
                 &nbsp;
-                Profile
+                {{ username }}
+                <!-- <span ng-model="username"></span> -->
               </a>
             </li>
           </ul>
@@ -110,31 +110,35 @@
       <!-- </div> -->
     </header>
 
-    <div id="wrapper" ng-class="{'toggled': autoScroll}">
+    <div id="wrapper" ng-class="{'toggled': toggleLeftBar}">
       <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li>
-          <a href="#">Dashboard</a>
-        </li>
-        <li>
-          <a href="#">Shortcuts</a>
-        </li>
-        <li>
-          <a href="#">Overview</a>
-        </li>
-        <li>
-          <a href="#">Events</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Services</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
+        <ul class="sidebar-nav">
+          <li>
+            <a href="#">
+              <i class="fa fa-dashboard"></i>            
+              <span>Dashboard</span>
+            </a>
+          </li>
+              
+          <li>
+            <a href="#">
+              <i class="fa fa-dribbble"></i>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-futbol-o"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li ng-class="{active: $state.includes('contacts')}">
+            <a href ui-sref="contacts.list">
+              <i class="fa fa-male"></i>
+              <span>Contacts</span>
+            </a>
+          </li> 
+        </ul>
       </div>
 
       <div id="page-content-wrapper">
@@ -179,38 +183,6 @@
         </div>
       </div>
     </div>
-   <!--    
-    <div class="theme-header">
-      <div class="theme-header__inner">
-        <h1 ng-bind-html="headerTitle"></h1>
-        <div class="notification"><div growl></div></div>
-      </div>
-    </div>
 
-    <section ui-view="main" class="fadeZ"></section>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        <ul class="social">
-          <li><i class="fa fa-google-plus"></i></li>
-          <li><i class="fa fa-twitter"></i></li>
-          <li><i class="fa fa-linkedin"></i></li>
-          <li><i class="fa fa-github"></i></li>
-        </ul>
-
-        <p>
-          (c) 2013 <a href="http://www.joshdavidmiller.com">Josh David Miller</a>. 
-          <a href="http://github.com/ngbp/ngbp/fork_select">Fork this</a>
-          to kickstart your next project.
-          <br />
-          ngbp is based on
-          <a href="http://www.angularjs.org">AngularJS</a>,
-          <a href="http://getbootstrap.com">Bootstrap</a>, 
-          <a href="http://angular-ui.github.com/bootstrap">UI Bootstrap</a>,
-          and 
-          <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>.        
-        </p>
-      </div>
-    </footer> -->
   </body>
 </html>

@@ -17,7 +17,7 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
       })
       .then(function() {
         //alertService.add('success', 'You have successfully signed up: ' + $scope.email, 5000);
-         growl.success('You have successfully signed up: <b>' + $scope.email + '</b>');
+         growl.success('Signed up: <b>' + $scope.email + '</b>');
 
         $state.go(go);
       });

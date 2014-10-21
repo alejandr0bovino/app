@@ -18,7 +18,8 @@ angular.module( 'ngBoilerplate', [
   'ui.router',
   'ngResource',
   'permission',
-  'angular-growl'
+  'angular-growl',
+  "com.2fdevs.videogular"
 ])
 
 .constant('apiUrl', 'http://backend.birds.codinglist.com/api')
@@ -149,7 +150,7 @@ angular.module( 'ngBoilerplate', [
   ]
 )
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $auth, shell, requireAuth, $document ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $auth, shell, requireAuth, $document, User) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){    
     $scope.pageTitle = angular.isDefined( toState.data.pageTitle ) ?
       toState.data.pageTitle + ' | ngBoilerplate' :
@@ -175,6 +176,18 @@ angular.module( 'ngBoilerplate', [
     return $auth.isAuthenticated();
   };
 
+  if ($auth.isAuthenticated()) {
+    // User.getUser().then(function (response) {
+    //   if (response.data) {
+    //     $scope.username = response.data.displayName;      
+    //   }
+    // });
+    User.getUser()
+      .success(function(data) {
+        $scope.username = data.displayName;
+      });
+  }
+
   //
   // var elem = $document[0].querySelectorAll('#elem');
   // var wrapper = $document[0].querySelectorAll('#wrapper');
@@ -192,6 +205,8 @@ angular.module( 'ngBoilerplate', [
     
 
   // };
+
+
 
 
 })

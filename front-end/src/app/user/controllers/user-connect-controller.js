@@ -6,7 +6,7 @@ angular.module( 'ngBoilerplate.user.ConnectCtrl', [
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
     .then(function() {
-      growl.success('You have successfully connected with:  <b>' + provider + '</b>');
+      growl.success('Connected with:  <b>' + provider + '</b>');
       $state.go(go);
     })
     /*.catch(function(response) {
