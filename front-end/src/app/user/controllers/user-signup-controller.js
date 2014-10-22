@@ -6,7 +6,6 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
   if (resA) {
     $state.go('user.profile');
   } else {
-    //$scope.$parent.title = "Sign up";
     $scope.$parent.title = "Welcome back";
 
     $scope.signup = function() {
@@ -16,10 +15,14 @@ angular.module( 'ngBoilerplate.user.SignupCtrl', [
         password: $scope.password
       })
       .then(function() {
-        //alertService.add('success', 'You have successfully signed up: ' + $scope.email, 5000);
          growl.success('Signed up: <b>' + $scope.email + '</b>');
-
-        $state.go(go);
+      })
+      .then(function(){
+        User.getUser()
+          .success(function(data) {
+            $rootScope.username = data.displayName;
+            $state.go(go);
+          });
       });
     };
   }

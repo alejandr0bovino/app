@@ -150,7 +150,7 @@ angular.module( 'ngBoilerplate', [
   ]
 )
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $auth, shell, requireAuth, $document, User) {
+.controller( 'AppCtrl', function AppCtrl ( $rootScope, $scope, $auth, shell, requireAuth, $document, User) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){    
     $scope.pageTitle = angular.isDefined( toState.data.pageTitle ) ?
       toState.data.pageTitle + ' | ngBoilerplate' :
@@ -184,7 +184,10 @@ angular.module( 'ngBoilerplate', [
     // });
     User.getUser()
       .success(function(data) {
-        $scope.username = data.displayName;
+        $rootScope.username = data.displayName;
+      })
+      .error(function() {
+        $rootScope.username = null;
       });
   }
 

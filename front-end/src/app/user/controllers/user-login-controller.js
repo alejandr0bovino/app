@@ -14,15 +14,13 @@ angular.module( 'ngBoilerplate.user.LoginCtrl', [
         .then(function() {
           //alertService.add('success', 'You have successfully logged in: ' + $scope.email, 5000);
           growl.success('Logged in: <b>' + $scope.email + '</b>');
-
-
-          // User.getUser()
-          // .success(function(data) {
-          //   $scope.$parent.username = data.displayName;
-          // });
-
-
-          $state.go(go);
+        })
+        .then(function(){
+          User.getUser()
+          .success(function(data) {
+            $rootScope.username = data.displayName;
+            $state.go(go);
+          });
         })
         .catch(function(response) {          
           growl.error(response.data.message); 
