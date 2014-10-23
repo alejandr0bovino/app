@@ -1,32 +1,11 @@
 .theme-header {  
-  //background-color: $ps-bg-dark;
-  border-bottom: 1px solid $brand-primary-dark;
+  padding: 1rem;
+  border-bottom: 1px solid $gray-lighter;
   
-    
-
   h1 {
     padding: 0;
     margin: 0;
     line-height: 1;
-    //color: $brand-primary;
-    //text-shadow: 0 0 10px $brand-primary-dark;
-    //font-size: $font-size-h2;
-    //font-family: plexifont_bvregular;
-    //font-family: 'Roboto Slab', serif;
     text-transform: uppercase;
-
-    small {
-      color: $brand-primary;
-    }
   }
-}
-
-
-
-
-
-.theme-header__inner {
-//@extend .container;
-  padding: 1rem;
-  position :relative;
 }

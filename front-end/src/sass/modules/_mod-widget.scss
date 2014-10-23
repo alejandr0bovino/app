@@ -1,0 +1,22 @@
+.mod-widget {
+  @extend .well;
+  text-align: center;
+
+  h4 {
+    margin-bottom: $line-height-computed;
+  }  
+
+  a {
+    @extend .btn, .btn-block,  .btn-lg, .btn-inverse;
+
+    &:before {
+      @extend %fa;
+      content: "\f204";  
+    }
+  }
+
+  i {
+    @extend %fa;
+    content: "\f204";
+  }
+}

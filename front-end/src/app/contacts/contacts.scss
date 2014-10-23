@@ -1,11 +1,11 @@
 .contact-detail {
   .form-control{
     &::selection {
-      background-color: $ps-bg;
+      background-color: $gray-lighter;
       color: $brand-primary;
     }
     &::-moz-selection {
-      background-color: $ps-bg;
+      background-color: $gray-lighter;
       color: $brand-primary;
     }
   }

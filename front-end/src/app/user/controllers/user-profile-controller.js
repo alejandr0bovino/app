@@ -2,7 +2,7 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
 
 ])
 
-.controller( 'ProfileCtrl', function ProfileCtrl( $scope, $auth, User, growl, $state, resA ) {  
+.controller( 'ProfileCtrl', function ProfileCtrl($rootScope, $scope, $auth, User, growl, $state, resA ) {  
 
   if (!resA) {
     $state.go('user.login');
@@ -22,7 +22,13 @@ angular.module( 'ngBoilerplate.user.ProfileCtrl', [
         displayName: $scope.user.displayName,
         email: $scope.user.email
       }).then(function() { 
-        growl.success("Profile updated"); 
+        growl.success("Profile updated");
+      })
+      .then(function(){
+        User.getUser()
+        .success(function(data) {
+          $rootScope.username = data.displayName;
+        });
       });
     };
 

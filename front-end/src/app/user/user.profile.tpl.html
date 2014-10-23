@@ -1,97 +1,95 @@
-<div class="row">
-    <div class="col-md-8">      
-        <div class="panel panel-inverse">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <i class="fa fa-male"></i>
-                    &nbsp;
-                    Edit Profile
-                </h3>
-            </div> 
+<div class="theme-grid--left--8">      
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="fa fa-male"></i>
+                &nbsp;
+                Edit Profile
+            </h3>
+        </div> 
 
-            <div class="panel-body">
-                <form method="post" ng-submit="updateUser(); profileForm.$setPristine()" name="profileForm">
-                    <div class="form-group" ng-class="{ 'has-error' : profileForm.displayName.$invalid && profileForm.displayName.$dirty }">
-                        <label class="control-label" for="displayName"><i class="fa fa-user"></i> Display Name</label>
-                        <input type="text" class="form-control input-lg" name="displayName" ng-model="user.displayName" ng-minlength="5" required autofocus/>
+        <div class="panel-body">
+            <form method="post" ng-submit="updateUser(); profileForm.$setPristine()" name="profileForm">
+                <div class="form-group" ng-class="{ 'has-error' : profileForm.displayName.$invalid && profileForm.displayName.$dirty }">
+                    <label class="control-label" for="displayName"><i class="fa fa-user"></i> Display Name</label>
+                    <input type="text" class="form-control input-lg" name="displayName" ng-model="user.displayName" ng-minlength="5" required autofocus/>
 
-                        <div class="help-block text-danger" ng-if="profileForm.displayName.$dirty" ng-messages="profileForm.displayName.$error">
-                            <div ng-message="required">You must enter your name.</div>
-                            <div ng-message="minlength">Your name is too short.</div>
-                        </div>
+                    <div class="help-block text-danger" ng-if="profileForm.displayName.$dirty" ng-messages="profileForm.displayName.$error">
+                        <div ng-message="required">You must enter your name.</div>
+                        <div ng-message="minlength">Your name is too short.</div>
                     </div>
+                </div>
 
-                    <div class="form-group" ng-class="{ 'has-error' : profileForm.email.$invalid && profileForm.email.$dirty }">
-                        <label class="control-label" for="email"><i class="fa fa-at"></i> Email Address</label>
-                        <input type="email" class="form-control input-lg" ng-model="user.email" type="email" id="email" name="email" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+                <div class="form-group" ng-class="{ 'has-error' : profileForm.email.$invalid && profileForm.email.$dirty }">
+                    <label class="control-label" for="email"><i class="fa fa-at"></i> Email Address</label>
+                    <input type="email" class="form-control input-lg" ng-model="user.email" type="email" id="email" name="email" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
 
-                        <div class="help-block text-danger" ng-if="profileForm.email.$dirty" ng-messages="profileForm.email.$error">
-                            <div ng-message="pattern">Your email address is invalid.</div>
-                            <div ng-message="required">Your email address is required.</div>
-                        </div>
-                    </div>   
+                    <div class="help-block text-danger" ng-if="profileForm.email.$dirty" ng-messages="profileForm.email.$error">
+                        <div ng-message="pattern">Your email address is invalid.</div>
+                        <div ng-message="required">Your email address is required.</div>
+                    </div>
+                </div>   
 
-                    <button class="btn btn-lg btn-inverse" ng-disabled="profileForm.$invalid || profileForm.$pristine">Update Information</button>
-                </form>
-            </div>
+                <button class="btn btn-lg btn-inverse" ng-disabled="profileForm.$invalid || profileForm.$pristine">Update Information</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="theme-grid--right--4">      
+
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <i class="fa fa-male"></i>
+                &nbsp;
+                Linked Accounts
+            </h3>
+        </div> 
+
+        <div class="panel-body">        
+          <button class="btn btn-block btn-primary" ng-if="user.facebook" ng-click="unlink('facebook')">
+            <i class="fa fa-facebook"></i>&nbsp; Unlink Facebook
+          </button>
+          <button class="btn btn-block btn-inverse" ng-if="!user.facebook" ng-click="link('facebook')">
+            <i class="fa fa-facebook"></i>&nbsp; Link Facebook
+          </button>
+
+          <button class="btn btn-block btn-primary" ng-if="user.google" ng-click="unlink('google')">
+            <i class="fa fa-google-plus"></i>&nbsp; Unlink Google
+          </button>
+          <button class="btn btn-block btn-inverse" ng-if="!user.google" ng-click="link('google')">
+            <i class="fa fa-google-plus"></i>&nbsp; Link Google
+          </button>
+
+          <button class="btn btn-block btn-primary" ng-if="user.twitter" ng-click="unlink('twitter')">
+            <i class="fa fa-twitter"></i>&nbsp; Unlink Twitter
+          </button>
+          <button class="btn btn-block btn-inverse" ng-if="!user.twitter" ng-click="link('twitter')">
+            <i class="fa fa-twitter"></i>&nbsp; Link Twitter
+          </button>
+
+          <button class="btn btn-block  btn-primary" ng-if="user.linkedin" ng-click="unlink('linkedin')">
+            <i class="fa fa-linkedin"></i>&nbsp; Unlink LinkedIn
+          </button>
+          <button class="btn btn-block btn-inverse" ng-if="!user.linkedin" ng-click="link('linkedin')" disabled>
+            <i class="fa fa-linkedin"></i>&nbsp; Link LinkedIn
+          </button>
+
+          <button class="btn btn-block  btn-primary" ng-if="user.github" ng-click="unlink('github')">
+            <i class="fa fa-github"></i>&nbsp; Unlink GitHub
+          </button>
+          <button class="btn btn-block btn-inverse" ng-if="!user.github" ng-click="link('github')" disabled>
+            <i class="fa fa-github"></i>&nbsp; Link GitHub
+          </button>
+          
+          <button class="btn btn-block  btn-primary" ng-if="user.foursquare" ng-click="unlink('foursquare')">
+            <i class="fa fa-foursquare"></i>&nbsp; Unlink Foursquare
+          </button>
+          <button class="btn btn-block btn-inverse" ng-if="!user.foursquare" ng-click="link('foursquare')" disabled>
+            <i class="fa fa-foursquare"></i>&nbsp; Foursquare
+          </button>
         </div>
     </div>
 
-    <div class="col-md-4">
-
-        <div class="panel panel-inverse">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <i class="fa fa-male"></i>
-                    &nbsp;
-                    Linked Accounts
-                </h3>
-            </div> 
-
-            <div class="panel-body">        
-              <button class="btn btn-block btn-primary" ng-if="user.facebook" ng-click="unlink('facebook')">
-                <i class="fa fa-facebook"></i>&nbsp; Unlink Facebook
-              </button>
-              <button class="btn btn-block btn-inverse" ng-if="!user.facebook" ng-click="link('facebook')">
-                <i class="fa fa-facebook"></i>&nbsp; Link Facebook
-              </button>
-
-              <button class="btn btn-block btn-primary" ng-if="user.google" ng-click="unlink('google')">
-                <i class="fa fa-google-plus"></i>&nbsp; Unlink Google
-              </button>
-              <button class="btn btn-block btn-inverse" ng-if="!user.google" ng-click="link('google')">
-                <i class="fa fa-google-plus"></i>&nbsp; Link Google
-              </button>
-
-              <button class="btn btn-block btn-primary" ng-if="user.twitter" ng-click="unlink('twitter')">
-                <i class="fa fa-twitter"></i>&nbsp; Unlink Twitter
-              </button>
-              <button class="btn btn-block btn-inverse" ng-if="!user.twitter" ng-click="link('twitter')">
-                <i class="fa fa-twitter"></i>&nbsp; Link Twitter
-              </button>
-
-              <button class="btn btn-block  btn-primary" ng-if="user.linkedin" ng-click="unlink('linkedin')">
-                <i class="fa fa-linkedin"></i>&nbsp; Unlink LinkedIn
-              </button>
-              <button class="btn btn-block btn-inverse" ng-if="!user.linkedin" ng-click="link('linkedin')" disabled>
-                <i class="fa fa-linkedin"></i>&nbsp; Link LinkedIn
-              </button>
-
-              <button class="btn btn-block  btn-primary" ng-if="user.github" ng-click="unlink('github')">
-                <i class="fa fa-github"></i>&nbsp; Unlink GitHub
-              </button>
-              <button class="btn btn-block btn-inverse" ng-if="!user.github" ng-click="link('github')" disabled>
-                <i class="fa fa-github"></i>&nbsp; Link GitHub
-              </button>
-              
-              <button class="btn btn-block  btn-primary" ng-if="user.foursquare" ng-click="unlink('foursquare')">
-                <i class="fa fa-foursquare"></i>&nbsp; Unlink Foursquare
-              </button>
-              <button class="btn btn-block btn-inverse" ng-if="!user.foursquare" ng-click="link('foursquare')" disabled>
-                <i class="fa fa-foursquare"></i>&nbsp; Foursquare
-              </button>
-            </div>
-        </div>
-
-    </div>
 </div>

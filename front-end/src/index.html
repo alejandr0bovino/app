@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">    
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400' rel='stylesheet' type='text/css'>
     
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" href="<%= file %>" /><% }); %>
@@ -16,7 +16,6 @@
     <script src="<%= file %>"></script><% }); %>
   </head>
   <body body-click ng-class="{view_home: $state.includes('home')}">
-
     
     <header class="navbar navbar-default navbar-fixed-top" role="navigation">
       <!-- <div class="container"> -->
@@ -147,13 +146,10 @@
 
             <div class="col-lg-12">
               <div class="theme-header">
-                <div class="theme-header__inner">
-                  <h1 ng-bind-html="headerTitle"></h1>
-                  <div class="notification"><div growl></div></div>
-                </div>
+                <h1 ng-bind-html="headerTitle"></h1>                  
               </div>
               
-              <section ui-view="main" class="fadeZ"></section>
+              <section ui-view="main" class="theme-section fadeZ"></section>
 
                <footer class="footer">
                 <div class="footer-inner">
@@ -180,5 +176,6 @@
       </div>
     </div>
 
+    <div growl></div>
   </body>
 </html>

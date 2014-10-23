@@ -1,49 +1,17 @@
-/////////////////////// ! CUSTOM ¡ //////////////////
 
-
-$brand-primary:         #222;
-$brand-primary-light: #000;
-$ps-bg-dark:      #fff;
-$ps-bg:           #eee;
-$navbar-default-bg: $brand-primary;
-$navbar-default-link-color: $ps-bg-dark;
-$navbar-default-link-active-color: #5AADE8;
-
-$navbar-default-link-hover-bg: $brand-primary-light;
-$navbar-default-link-hover-color: darken($ps-bg, 50);
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
+//swatch
 $s1 : darken(coral, 30);
 
 
 ////////////////////////////////////////////////////////////////////////
 
 
-$ps-text:         #DC3522;
-$ps-nav-bg:       #DC3522;
-$ps-link-text:    #83aca0;
-$ps-nav-text:     #374140;
-$ps-well-bg:      #374140;
-$ps-bg:           #212121 !default;
-$ps-bg-dark: darken($ps-bg, 5) !default; 
 
 $gray:                   lighten(#000, 33.5%); // #555
   $gray-darker:            lighten(#000, 13.5%); // #222
   $gray-dark:              lighten(#000, 20%);   // #333
-
   $gray-light:             lighten(#000, 46.7%); // #777
   $gray-lighter:           lighten(#000, 93.5%); // #eee
-
-
-$brand-primary:         #b1d6db !default;
-  $brand-primary-light: #fff !default;
-  $brand-primary-dark: desaturate(darken($brand-primary, 30), 10) !default;
 
 
 $brand-success:         #5cb85c;
@@ -53,12 +21,33 @@ $brand-danger:          #d9534f;
 
 
 
-
-
-
 /////////////////////////////////////////////
 
 
+$body-bg:               transparent;
+$text-color:            $gray-dark;
+$link-color:            $gray-dark;
+$link-hover-color:     $link-color;
+
+
+$text-muted: $gray-darker;
+
+
+////////////////////////////////////////////////////////////////////////
+
+
+$navbar-default-bg: rgba(#ffffff, .9) !default;
+$navbar-default-link-color: desaturate(darken($gray-dark, 20), 5) !default;
+$navbar-default-link-hover-color: $gray-dark !default;
+$navbar-default-link-hover-bg: #ffffff !default;
+$navbar-default-link-active-bg: transparent;
+$navbar-default-link-active-color: $gray-light !default;
+$navbar-default-border: $gray-lighter;
+$navbar-default-toggle-border-color: $gray-dark;
+$navbar-default-toggle-hover-bg: #ffffff;
+$navbar-default-toggle-icon-bar-bg: $gray-dark;
+
+/////////////////////////////////////////////
 
 
 $font-size-h1:          2.25rem; 
@@ -69,35 +58,6 @@ $font-size-h5:          .875rem;
 $font-size-h6:          .75rem;
 
 
-
-
-
-
-/////////////////////////////////////////////
-
-
-$body-bg:               transparent;
-$text-color:            $brand-primary;
-$link-color:            $brand-primary;
-$link-hover-color:     $link-color;
-
-
-$text-muted: $brand-primary-dark;
-
-
-////////////////////////////////////////////////////////////////////////
-
-
-$navbar-default-bg: rgba($ps-bg-dark, .9) !default;
-$navbar-default-link-color: desaturate(darken($brand-primary, 20), 5) !default;
-$navbar-default-link-hover-color: $brand-primary !default;
-$navbar-default-link-hover-bg: $ps-bg-dark !default;
-$navbar-default-link-active-bg: transparent;
-$navbar-default-link-active-color: $brand-primary-light !default;
-$navbar-default-border: $brand-primary-dark;
-$navbar-default-toggle-border-color: $brand-primary;
-$navbar-default-toggle-hover-bg: $ps-bg-dark;
-$navbar-default-toggle-icon-bar-bg: $brand-primary;
 
 
 
@@ -128,14 +88,14 @@ $font-path:         "fonts";
 
 
 
-// $font-size-base:        14px;
-// $line-height-base:      1.4219;
-// $line-height-small:     1.4928;
+$font-size-base:        14px;
+$line-height-base:      1.4219;
+$line-height-small:     1.4928;
 
 
-$font-size-base:        16px;
-$line-height-base:      1.625;
-$line-height-small:     1.706;
+// $font-size-base:        16px;
+// $line-height-base:      1.625;
+// $line-height-small:     1.706;
 
 // $font-size-base:        18px;
 // $line-height-base:      1.8281;
@@ -147,8 +107,8 @@ $line-height-small:     1.706;
 
 
 
-$input-bg: $ps-bg;
-$input-color: $brand-primary;
+$input-bg: $gray-light;
+$input-color: $gray-dark;
 $input-border: transparent;
 
 
@@ -166,7 +126,7 @@ $input-border-focus: #ccc;
 
 
 
-$link-color: $brand-primary;
+$link-color: $gray-dark;
 
 $state-success-text: #fff;
 $state-success-bg: $brand-success;
@@ -189,44 +149,45 @@ $state-warning-bg: $brand-warning;
 //$state-danger-text: #fff;
 $state-danger-bg: lighten($brand-danger, 5);
 
-$hr-border:             $brand-primary;
+$hr-border:             $gray-dark;
 
 $pre-bg: transparent;
-$pre-border-color: $brand-primary-dark;
-$pre-color: $brand-primary;
+$pre-border-color: $gray-darker;
+$pre-color: $gray-dark;
 
 $list-group-bg: transparent;
-$list-group-border: $brand-primary;
+$list-group-border: $gray-dark;
 
 
-$btn-primary-color: $ps-bg;
-$btn-danger-color: $ps-bg;
-$btn-info-color: $ps-bg;
+$btn-primary-color: $gray-light;
+$btn-danger-color: $gray-light;
+$btn-info-color: $gray-light;
 
 $well-bg: transparent;
-$well-border: $brand-primary-dark;
+$well-border: $gray-lighter;
 
 
 
 
 
 
-// $dropdown-bg : $ps-bg;
-// $dropdown-border: $brand-primary;
-// $dropdown-divider-bg : $brand-primary;
 
-// $dropdown-link-color : $brand-primary;
+// $dropdown-bg : $gray-light;
+// $dropdown-border: $gray-dark;
+// $dropdown-divider-bg : $gray-dark;
+
+// $dropdown-link-color : $gray-dark;
 // $dropdown-link-hover-color: $link-hover-color;
 
 
 
 
 $tooltip-bg: #fff;
-$tooltip-color: $ps-bg;
+$tooltip-color: $gray-light;
 
 
 
-$loading-bar-color: $brand-primary;
+$loading-bar-color: $gray-dark;
 
 
 

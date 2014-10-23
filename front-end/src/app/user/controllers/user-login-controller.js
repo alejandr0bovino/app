@@ -12,7 +12,6 @@ angular.module( 'ngBoilerplate.user.LoginCtrl', [
     $scope.login = function() {
       $auth.login({ email: $scope.email, password: $scope.password })
         .then(function() {
-          //alertService.add('success', 'You have successfully logged in: ' + $scope.email, 5000);
           growl.success('Logged in: <b>' + $scope.email + '</b>');
         })
         .then(function(){

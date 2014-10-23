@@ -20,14 +20,14 @@
 
 html {  
     // font size 14px (default)
-    // @media (max-width: $screen-xs-max) { font-size: 75% }
-    // @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { font-size: 87.5% }
-    // @media (min-width: $screen-md-min) { font-size: 87.5% }
-
-    //font size 16px    
     @media (max-width: $screen-xs-max) { font-size: 75% }
     @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { font-size: 87.5% }
-    @media (min-width: $screen-md-min) { font-size: 100% }
+    @media (min-width: $screen-md-min) { font-size: 87.5% }
+
+    //font size 16px    
+    // @media (max-width: $screen-xs-max) { font-size: 75% }
+    // @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) { font-size: 87.5% }
+    // @media (min-width: $screen-md-min) { font-size: 100% }
 
     //
 
@@ -42,7 +42,7 @@ html {
 
 
 body {
-  font-family: 'Roboto Condensed', sans-serif; 
+  font-family: 'Ubuntu', sans-serif; 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;

@@ -2,11 +2,12 @@ angular.module( 'ngBoilerplate.user.LogoutCtrl', [
 
 ])
 
-.controller( 'LogoutCtrl', function LogoutCtrl( $scope, $auth, $state, growl ) {  
+.controller( 'LogoutCtrl', function LogoutCtrl( $rootScope, $scope, $auth, $state, growl ) {  
   $auth.logout()      
     .then(function() {
-      //alertService.add('success', 'You have successfully logged out', 2500);
-       growl.success('Logged out');
+      growl.success('Logged out');
+      $rootScope.displayName = '';
+      console.log($rootScope.displayName);
       $state.go('home');
     });
 

@@ -1,8 +1,17 @@
-<div class="well login-to-continue">
+<div class="theme-grid--left--8">
+  <div class="mod-widget">
     <h4>Please log in to continue :</h4>
+
     <p>
-      <a class="btn btn-lg btn-inverse" href ui-sref="{{ loginRedirect || '#' }}" ng-click="referer()">
-        <i class="fa fa-toggle-off"></i>&nbsp; Log in
+      <a href ui-sref="{{ loginRedirect || '#' }}" ng-click="referer()">
+        Log in
       </a>
     </p>
+  </div>
+</div>
+
+<div class="theme-grid--right--4">
+  <div class="well"  style="text-align :center; padding-top: 2rem">
+    <i class="fa fa-newspaper-o" style="font-size: 4rem; opacity: .1"></i>
+  </div>
 </div>

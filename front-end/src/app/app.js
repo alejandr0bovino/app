@@ -22,8 +22,8 @@ angular.module( 'ngBoilerplate', [
   "com.2fdevs.videogular"
 ])
 
-.constant('apiUrl', 'http://backend.birds.codinglist.com/api')
-//.constant('apiUrl', 'http://backend.themazechanges.com/api')
+//.constant('apiUrl', 'http://backend.birds.codinglist.com/api')
+.constant('apiUrl', 'http://backend.themazechanges.com/api')
 
 .constant("requireAuth", ['books'])
 

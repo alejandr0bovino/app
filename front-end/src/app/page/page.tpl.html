@@ -1,7 +1,7 @@
 <section class="theme-section page">
-  <div class="theme-section__inner">
-    <div class="row">
-      <div class="col-sm-8">    
+
+
+      <div class="theme-grid--left--8">
 
         <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
 
@@ -37,7 +37,7 @@
           tooltip="After today restriction" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Min date</button>
       </div>
 
-      <div class="col-sm-4">
+      <div class="theme-grid--right--4">
         <div class="mod-panel">
           <accordion close-others="oneAtATime">
             <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
@@ -77,6 +77,6 @@
           Open only one at a time
         </label>
       </div>
-    </div>
-  </div>
+
+
 </section>

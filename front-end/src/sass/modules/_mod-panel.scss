@@ -10,8 +10,8 @@
   
     
   .panel-inverse {
-    background-color: $ps-bg-dark;
-    border-color: $brand-primary-dark;
+    background-color: #ffffff;
+    border-color: $gray-lighter;
   
     @include transition((
       border-color $transition-duration0 $transition-function,
@@ -25,10 +25,10 @@
     > .panel-heading {      
       background-color: transparent;
       @include transition(color $transition-duration0 $transition-function);
-      color: $brand-primary;
+      color: $gray-dark;
 
       + .panel-collapse > .panel-body {
-        border-top-color: $brand-primary-dark
+        border-top-color: $gray-lighter
       }
     }
 
@@ -42,7 +42,7 @@
 
     &.text-muted {
       cursor: default;
-      color: $brand-primary;
+      color: $gray-dark;
       opacity: .65;
 
       .panel-body,
