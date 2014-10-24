@@ -10,8 +10,8 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.page',
   'ngBoilerplate.contacts',
   'ngBoilerplate.user',
+  'ngBoilerplate.movies',
   'ngBoilerplate.utils.service',
-  //'ngBoilerplate.alert.service',  
   'ngBoilerplate.authenticate.service',
   'ngBoilerplate.shell.service',
   'ngBoilerplate.user.service',
@@ -22,8 +22,12 @@ angular.module( 'ngBoilerplate', [
   "com.2fdevs.videogular"
 ])
 
-.constant('apiUrl', 'http://backend.birds.codinglist.com/api')
-//.constant('apiUrl', 'http://backend.themazechanges.com/api')
+
+
+//.constant('apiUrl', 'http://backend.birds.codinglist.com/api')
+.constant('apiUrl', 'http://backend.themazechanges.com/api')
+
+
 
 .constant("requireAuth", ['books'])
 
@@ -37,7 +41,6 @@ angular.module( 'ngBoilerplate', [
     var hasTrailingSlash = path[path.length-1] === '/';
 
     if(hasTrailingSlash) {
-      //if last charcter is a slash, return the same url without the slash  
       var newPath = path.substr(0, path.length - 1); 
       return newPath; 
     } 
@@ -52,10 +55,14 @@ angular.module( 'ngBoilerplate', [
   $authProvider.unlinkUrl = apiUrl + '/auth/unlink/';
     
   $authProvider.facebook({
-    clientId: '864860706858750',
+    //clientId: '864860706858750',
+    //redirectUri: window.location.origin + '/build/',
+    clientId: '361828333991456',    
+    redirectUri: window.location.origin + '/',
+
+
     url: apiUrl + '/auth/facebook',
-    authorizationEndpoint: 'https://www.facebook.com/dialog/oauth',
-    redirectUri: window.location.origin + '/build/',
+    authorizationEndpoint: 'https://www.facebook.com/dialog/oauth',    
     scope: 'email',
     scopeDelimiter: ',',
     requiredUrlParams: ['display', 'scope'],
@@ -65,10 +72,14 @@ angular.module( 'ngBoilerplate', [
   });
 
   $authProvider.google({
-    clientId: '68950641290-bujrhrmjv332lferls9bqhcg732ts0d2.apps.googleusercontent.com',
+    //clientId: '68950641290-bujrhrmjv332lferls9bqhcg732ts0d2.apps.googleusercontent.com',
+    //redirectUri: window.location.origin + '/build/',
+    clientId: '646554560377-ag9agqrosc0bjavgmeal03iachaanqbn.apps.googleusercontent.com',
+    redirectUri: window.location.origin,
+
+
     url: apiUrl + '/auth/google',
-    authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-    redirectUri: window.location.origin + '/build/',
+    authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',    
     scope: ['profile', 'email'],
     scopePrefix: 'openid',
     scopeDelimiter: ' ',

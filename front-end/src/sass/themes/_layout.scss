@@ -113,31 +113,29 @@ body {
 
 
 
-
-
-// .theme-grid--8 {
-//   @include make-md-column(8, 0);
-// }
-.theme-grid--4 {
-  @include make-md-column(4, 0);
-}
-
+////////////////////
 
 
 [class*="theme-grid"] {
   &[class*="--8"] {
-    @include make-md-column(8, 0);
+    @include make-md-column(8);
   }
+
+  &[class*="--6"] {
+    @include make-md-column(6);
+  }  
 
   &[class*="--4"] {
-    @include make-md-column(4, 0);
+    @include make-md-column(4);
   }
 
-  &[class*="--left"] {
-    padding-right: 15px;
-  }
-  &[class*="--right"] {
-    padding-left: 15px;
+  @media (min-width: $screen-md-min) {
+    &[class*="--left"] {
+      padding-left: 0;
+    }
+    &[class*="--right"] {
+       padding-right:0;
+    }
   }
 }
 

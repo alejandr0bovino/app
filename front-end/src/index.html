@@ -15,7 +15,7 @@
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script src="<%= file %>"></script><% }); %>
   </head>
-  <body body-click ng-class="{view_home: $state.includes('home')}">
+  <body body-click ng-class="{view_home: $state.includes('movies')}">
     
     <header class="navbar navbar-default navbar-fixed-top" role="navigation">
       <!-- <div class="container"> -->
@@ -29,9 +29,9 @@
           <ul class="nav navbar-nav">
             <li ui-sref-active="active">
               <a href ui-sref="home">
-                <i class="fa fa-plane"></i>
-                &nbsp;
-                Home
+                <!-- <i class="fa fa-plane"></i>
+                &nbsp; -->
+                Social Network
               </a>
             </li>
           </ul>
@@ -68,6 +68,14 @@
                 Books
               </a>
             </li>  
+
+            <li ng-class="{active: $state.includes('movies')}">
+              <a href ui-sref="movies">
+                <i class="fa fa-video-camera"></i>
+                &nbsp;
+                Movies
+              </a>
+            </li>              
                
           </ul>
           

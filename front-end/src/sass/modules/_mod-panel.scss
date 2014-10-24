@@ -37,13 +37,30 @@
         border-color $transition-duration0 $transition-function,
         color $transition-duration0 $transition-function
       ));
+
+      ul {
+        list-style: none;
+        margin-bottom: 0;
+      }
+      li::before {
+        @extend %fa;
+        content: "\f105";
+      }
     }
 
 
     &.text-muted {
       cursor: default;
-      color: $gray-dark;
-      opacity: .65;
+      //color: $gray-dark;
+      //opacity: .65;
+
+      .panel-title a {
+        color: $gray-lighter;
+      }
+
+      .panel-heading {
+        border-color: $gray-lighter;
+      }
 
       .panel-body,
       .panel-title a {
