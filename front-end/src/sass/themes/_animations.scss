@@ -1,5 +1,5 @@
 .fadeZ.ng-enter {
-  @include animation-duration(2s);
+  @include animation-duration(.5s);
   @include animation-name(zoomInZ);
 }
 
@@ -29,7 +29,7 @@
 
 
 .fadeZoom.ng-enter {
-  @include animation-duration(2s);
+  @include animation-duration(.5s);
   @include animation-name(zoomIn);
 }
 

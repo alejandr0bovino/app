@@ -22,17 +22,48 @@ angular.module( 'ngBoilerplate', [
   "com.2fdevs.videogular"
 ])
 
+.constant("requireAuth", ['books'])    
+
+.constant("apiUrl", function() {  
+  var url = window.location.pathname == "/build/" ?
+    'http://backend.birds.codinglist.com/api' :
+    'http://backend.themazechanges.com/api';
+  
+  return url;
+})
+.constant('oauthRedirectUri', function() {
+  var url = window.location.origin;
+
+  if (window.location.pathname == "/build/") {
+    url = url + "/build/"  ;
+  }
+  //var append = window.location.pathname == "/build/" ? "/build/" : "/";  
+  //url = url + append;
+
+  return url;
+})
+.constant("facebookClientId", function() {  
+  var client = window.location.pathname == "/build/" ?
+    '864860706858750' :
+    '361828333991456';
+  
+  return client;
+})
+.constant("googleClientId", function() {  
+  var client = window.location.pathname == "/build/" ? 
+    "68950641290-bujrhrmjv332lferls9bqhcg732ts0d2.apps.googleusercontent.com" :
+    "646554560377-ag9agqrosc0bjavgmeal03iachaanqbn.apps.googleusercontent.com";
+  
+  return client;
+})
 
 
-//.constant('apiUrl', 'http://backend.birds.codinglist.com/api')
-.constant('apiUrl', 'http://backend.themazechanges.com/api')
 
-
-
-.constant("requireAuth", ['books'])
-
-.config( function myAppConfig (apiUrl, $stateProvider, $urlRouterProvider, $authProvider, growlProvider ) {    
-
+.config( function myAppConfig (
+      apiUrl, $stateProvider, $urlRouterProvider, $authProvider, growlProvider,
+      facebookClientId, googleClientId, oauthRedirectUri
+    )
+  {    
 
   $urlRouterProvider.otherwise('/home');  
 
@@ -43,25 +74,23 @@ angular.module( 'ngBoilerplate', [
     if(hasTrailingSlash) {
       var newPath = path.substr(0, path.length - 1); 
       return newPath; 
-    } 
-    
+    }  
   });
   
-  
 
-  // Satellizer
-  $authProvider.signupUrl = apiUrl + '/auth/signup';
-  $authProvider.loginUrl  = apiUrl + '/auth/login';
-  $authProvider.unlinkUrl = apiUrl + '/auth/unlink/';
+  var url = apiUrl().toString();
+
+  console.log(url);
+
+  $authProvider.signupUrl = url + '/auth/signup';
+  $authProvider.loginUrl  = url + '/auth/login';
+  $authProvider.unlinkUrl = url + '/auth/unlink/';
     
   $authProvider.facebook({
-    //clientId: '864860706858750',
-    //redirectUri: window.location.origin + '/build/',
-    clientId: '361828333991456',    
-    redirectUri: window.location.origin + '/',
+    clientId: facebookClientId(),    
+    redirectUri: oauthRedirectUri() + '/',    
 
-
-    url: apiUrl + '/auth/facebook',
+    url: url + '/auth/facebook',
     authorizationEndpoint: 'https://www.facebook.com/dialog/oauth',    
     scope: 'email',
     scopeDelimiter: ',',
@@ -72,13 +101,10 @@ angular.module( 'ngBoilerplate', [
   });
 
   $authProvider.google({
-    //clientId: '68950641290-bujrhrmjv332lferls9bqhcg732ts0d2.apps.googleusercontent.com',
-    //redirectUri: window.location.origin + '/build/',
-    clientId: '646554560377-ag9agqrosc0bjavgmeal03iachaanqbn.apps.googleusercontent.com',
-    redirectUri: window.location.origin,
+    clientId: googleClientId(),
+    redirectUri: oauthRedirectUri(),    
 
-
-    url: apiUrl + '/auth/google',
+    url: url + '/auth/google',
     authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',    
     scope: ['profile', 'email'],
     scopePrefix: 'openid',
@@ -91,18 +117,15 @@ angular.module( 'ngBoilerplate', [
   });
 
   $authProvider.twitter({
-    url: apiUrl + '/auth/twitter',
+    url: url + '/auth/twitter',
     type: '1.0'
   });
 
   //
 
-  growlProvider.globalTimeToLive(5000);
-  //growlProvider.globalPosition('top-center');
+  growlProvider.globalTimeToLive(2500);
   growlProvider.globalDisableCountDown(true);
   growlProvider.globalDisableCloseButton(true);
-  //growlProvider.onlyUniqueMessages(false);
-
 })
 
 .run(['$rootScope', '$state', '$stateParams', 'Permission', '$q', 'User',  'authenticate',
@@ -219,15 +242,10 @@ angular.module( 'ngBoilerplate', [
     
 
   // };
-
-
-
-
 })
 
 
 .directive('bodyClick', function ($document, $parse) {
-
   var linkFunction = function ($scope, $element, $attributes) {
 
     var scopeExpression = $attributes.bodyClick;

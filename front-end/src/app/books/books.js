@@ -111,10 +111,10 @@ angular.module( 'ngBoilerplate.books', [
 .factory("BookService", function(apiUrl, $resource, $q) {
   return {
     getBooks: function() {
-      return $resource(apiUrl + '/books', {});
+      return $resource(apiUrl() + '/books', {});
     },
     getGenres: function() {
-      return $resource(apiUrl + '/books/genres', {});
+      return $resource(apiUrl() + '/books/genres', {});
     },
     getBookById: function() {
       return $resource(
