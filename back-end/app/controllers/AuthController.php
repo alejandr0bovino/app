@@ -344,7 +344,8 @@ class AuthController extends \BaseController {
                 $user = new User;
                 $user->twitter = $profile['user_id'];
                 $user->displayName = $profile['screen_name'];
-                $user->email = $profile['email'];
+                //$user->email = $profile['email'];
+
                 $user->password = Hash::make('secret');
                 $user->save();
 

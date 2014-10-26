@@ -1,31 +1,45 @@
+// .fadeZ.ng-enter {
+//   @include animation-duration(.5s);
+//   @include animation-name(zoomInZ);
+// }
+
+
+// @-webkit-keyframes zoomInZ {
+//   0% {
+//     opacity: .25;
+//   }
+
+//   50% {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes zoomInZ {
+//   0% {
+//     opacity: .25;
+
+//   }
+
+//   50% {
+//     opacity: 1;
+//   }
+// }
 .fadeZ.ng-enter {
-  @include animation-duration(.5s);
-  @include animation-name(zoomInZ);
+  @include animation-duration($transition-duration1);
+  @include animation-name(fadeInDown);
+  @include animation-timing-function($transition-function);  
+  @include animation-delay($transition-duration0);
+  @include animation-fill-mode(both);
 }
 
-
-@-webkit-keyframes zoomInZ {
-  0% {
-    opacity: .25;
-  }
-
-  50% {
-    opacity: 1;
-  }
+.fadeZ.ng-leave {
+  @include animation-duration($transition-duration0);
+  @include animation-name(fadeOutUp);
+  @include animation-timing-function($transition-function);
+  @include animation-fill-mode(both);
 }
 
-@keyframes zoomInZ {
-  0% {
-    opacity: .25;
-
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-
+////////////////////////////////////////////////////////////////
 
 
 .fadeZoom.ng-enter {
@@ -60,18 +74,7 @@
 
 
 
-/////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -111,19 +114,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -136,8 +127,7 @@
 
   100% {
     opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0);
+    @include transform(translate3d(0, -10%, 0));    
   }
 }
 
@@ -148,12 +138,55 @@
 
   100% {
     opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-            transform: translate3d(0, -100%, 0);
+    @include transform(translate3d(0, -10%, 0));    
   }
 }
 
-.fadeOutUp {
-  -webkit-animation-name: fadeOutUp;
-          animation-name: fadeOutUp;
+// .fadeOutUp {
+//   @include animation-name(fadeOutUp);  
+// }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    @include transform(translate3d(0, -10%, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(none);
+  }
 }
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;    
+    @include transform(translate3d(0, -10%, 0));
+  }
+
+  100% {
+    opacity: 1;
+    @include transform(none);
+  }
+}
+
+// .fadeInDown {  
+//   @include animation-name(fadeInDown);
+// }
+
+
+
+
+
+
+
+
+
+

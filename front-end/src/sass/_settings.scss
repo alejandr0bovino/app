@@ -1,4 +1,18 @@
 
+$transition-duration0:  .25s;
+$transition-duration1:  .5s;
+$transition-duration2:  1s;
+$transition-function:   ease-out;
+
+
+//
+
+$font-path:         "fonts";
+
+
+
+
+
 //swatch
 $s1 : darken(coral, 30);
 
@@ -39,6 +53,9 @@ $text-muted: $gray-darker;
 $nav-link-padding: 10px 1rem;
 //$navbar-padding-vertical: .6rem;
 
+
+$grid-float-breakpoint: 1200px;
+
 $navbar-default-bg: rgba(#ffffff, .9) !default;
 $navbar-default-link-color: desaturate(darken($gray-dark, 20), 5) !default;
 $navbar-default-link-hover-color: $gray-dark !default;
@@ -50,7 +67,7 @@ $navbar-default-toggle-border-color: $gray-dark;
 $navbar-default-toggle-hover-bg: #ffffff;
 $navbar-default-toggle-icon-bar-bg: $gray-dark;
 
-
+$navbar-minheight: 51px;
 
 /////////////////////////////////////////////
 
@@ -72,23 +89,6 @@ $font-size-h6:          .75rem;
 
 
 
-$transition-duration0:  .2s;
-$transition-duration1:  .4s;
-$transition-duration2:  .8s;
-$transition-function:   ease-out;
-
-
-//
-
-// $color-c: DarkSlateGray;
-// $color-h: #c00;
-
-
-
-//
-
-$font-path:         "fonts";
-
 
 
 
@@ -98,9 +98,9 @@ $font-path:         "fonts";
 // $line-height-small:     1.4928;
 
 
-$font-size-base:        16px;
-$line-height-base:      1.625;
-$line-height-small:     1.706;
+// $font-size-base:        16px;
+// $line-height-base:      1.625;
+// $line-height-small:     1.706;
 
 // $font-size-base:        18px;
 // $line-height-base:      1.8281;
@@ -164,9 +164,9 @@ $list-group-bg: transparent;
 $list-group-border: $gray-dark;
 
 
-$btn-primary-color: $gray-light;
-$btn-danger-color: $gray-light;
-$btn-info-color: $gray-light;
+//$btn-primary-color: $gray-light;
+//$btn-danger-color: $gray-light;
+//$btn-info-color: $gray-light;
 
 $well-bg: transparent;
 $well-border: $gray-lighter;
@@ -187,8 +187,8 @@ $well-border: $gray-lighter;
 
 
 
-$tooltip-bg: #fff;
-$tooltip-color: $gray-light;
+// $tooltip-bg: #fff;
+// $tooltip-color: $gray-light;
 
 
 

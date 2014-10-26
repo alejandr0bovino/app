@@ -4,6 +4,9 @@ angular.module( 'ngBoilerplate', [
   'angular-loading-bar',
   'ngAnimate',
   'ngSanitize',
+  'ngResource',
+  'ui.router',
+  //  
   'ngBoilerplate.home',
   'ngBoilerplate.about',
   'ngBoilerplate.books',
@@ -15,8 +18,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.authenticate.service',
   'ngBoilerplate.shell.service',
   'ngBoilerplate.user.service',
-  'ui.router',
-  'ngResource',
+  //
   'permission',
   'angular-growl',
   "com.2fdevs.videogular"
@@ -79,8 +81,13 @@ angular.module( 'ngBoilerplate', [
   
 
   var url = apiUrl().toString();
+  
+  if (url=="http://backend.birds.codinglist.com/api") {
+    console.log("BIRDS");
+  } else {
+    console.log("theMAZEchanges");
+  }
 
-  console.log(url);
 
   $authProvider.signupUrl = url + '/auth/signup';
   $authProvider.loginUrl  = url + '/auth/login';
@@ -180,11 +187,16 @@ angular.module( 'ngBoilerplate', [
           return deferred.promise;
         });
 
+
+
+      ////////////////////////
+
+
     }
   ]
 )
 
-.controller( 'AppCtrl', function AppCtrl ( $rootScope, $scope, $auth, shell, requireAuth, $document, User) {
+.controller( 'AppCtrl', function AppCtrl ( $rootScope, $scope, $auth, shell, requireAuth, $document, User, $window, $timeout) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){    
     $scope.pageTitle = angular.isDefined( toState.data.pageTitle ) ?
       toState.data.pageTitle + ' | ngBoilerplate' :
@@ -202,6 +214,13 @@ angular.module( 'ngBoilerplate', [
         shell.setReferer(toState.name);
       };
     }
+
+
+    ////////////////////////////////
+    // scroll top on page change
+    $timeout(function () {
+      $window.scrollTo(0,0);
+    }, 400);
   
   });
 
@@ -236,14 +255,15 @@ angular.module( 'ngBoilerplate', [
   //
 
 
-  // $scope.eee = function (e) {
-        
-  //   shell.setClick(e.target);
-    
 
-  // };
+      $scope.menuCollapsed = true;
+
+      $scope.$on('$stateChangeSuccess', function () {
+          $scope.menuCollapsed = true;
+      });
+
+
 })
-
 
 .directive('bodyClick', function ($document, $parse) {
   var linkFunction = function ($scope, $element, $attributes) {
@@ -275,5 +295,7 @@ angular.module( 'ngBoilerplate', [
     }
   };
 })
+
+
 
 ;

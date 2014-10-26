@@ -1,11 +1,11 @@
 <div class="clearfix">
   <div class="theme-grid--left--4">
-    <div><img src="assets/img/{{book.cover}}" class="img-responsive gc"></div>
+    <div><img ng-src="assets/img/{{book.cover}}" class="img-responsive gc"></div>
   </div>
 
   <div class="theme-grid--right--8">
     <h3>{{book.title}}</h3>
 
-    <div>{{book.abstract}}</div>
+    <div ng-bind-html="book.abstract"></div>
   </div>
 </div>

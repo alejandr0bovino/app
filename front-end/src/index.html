@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title ng-bind="pageTitle"></title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">    
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400' rel='stylesheet' type='text/css'>
@@ -19,9 +19,9 @@
     
     <header class="navbar navbar-default navbar-fixed-top" role="navigation">
       <!-- <div class="container"> -->
-        <div class="navbar-header" ng-class="{'toggled': !toggleLeftBar}">
+        <div class="navbar-header toggled" ng-class="{'toggled': toggleLeftBar}">
 
-          <button class="navbar-toggle navbar-toggle-left" style="display:block;float:left" ng-click="toggleLeftBar = !toggleLeftBar" stop-event='click'>
+          <button class="navbar-toggle navbar-toggle-left" ng-click="toggleLeftBar = !toggleLeftBar" stop-event='click'>
             <i class="fa fa-bars"></i>
             <span class="sr-only">Toggle navigation</span>
           </button>
@@ -31,33 +31,24 @@
               <a href ui-sref="home">
                 <i class="fa fa-plane"></i>
                 &nbsp;
-                <b>Air</b>port
+                <b>Air</b> port
               </a>
             </li>
           </ul>
           
-          <button class="navbar-toggle navbar-toggle-right" ng-init="menuCollapsed = true"
-            ng-click="menuCollapsed = ! menuCollapsed">
+          <button class="navbar-toggle navbar-toggle-right" ng-click="menuCollapsed = ! menuCollapsed">
             <span class="sr-only">Toggle navigation</span>
             <i class="fa fa-bars"></i>
           </button>
         </div>
 
         <div class="navbar-collapse collapse" collapse="menuCollapsed">
-          <ul class="nav navbar-nav">                      
+          <ul class="nav navbar-nav">
             <li ui-sref-active="active">
               <a href ui-sref="about">                
                 <i class="fa fa-question-circle"></i>
                 &nbsp;
-                What is it?
-              </a>
-            </li>
-            
-            <li ui-sref-active="active">
-              <a href ui-sref="page">
-                <i class="fa fa-try"></i>
-                &nbsp;
-                Page
+                About
               </a>
             </li>
 
@@ -76,7 +67,6 @@
                 Movies
               </a>
             </li>              
-               
           </ul>
           
           <ul class="nav navbar-nav navbar-right">
@@ -117,30 +107,30 @@
       <!-- </div> -->
     </header>
 
-    <div id="wrapper" ng-class="{'toggled': toggleLeftBar}">
+    <div id="wrapper" ng-class="{'toggled': !toggleLeftBar}" class="toggled">
       <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
           <li>
-            <a href="#">
+            <a href="#" tooltip-placement="right" tooltip="Dashboard">
               <i class="fa fa-dashboard"></i>            
               <span>Dashboard</span>
             </a>
           </li>
               
           <li>
-            <a href="#">
+            <a href="#" tooltip-placement="right" tooltip="Overview">
               <i class="fa fa-dribbble"></i>
               <span>Overview</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" tooltip-placement="right" tooltip="Events">
               <i class="fa fa-futbol-o"></i>
               <span>Events</span>
             </a>
           </li>
           <li ng-class="{active: $state.includes('contacts')}">
-            <a href ui-sref="contacts.list">
+            <a href ui-sref="contacts.list" tooltip-placement="right" tooltip="Contacts">
               <i class="fa fa-male"></i>
               <span>Contacts</span>
             </a>
@@ -149,38 +139,39 @@
       </div>
 
       <div id="page-content-wrapper">
-        <div class="container-fluid">
+        <!-- <div class="container-fluid"> -->
 
-
-            <div class="col-lg-12">
               <div class="theme-header">
                 <h1 ng-bind-html="headerTitle"></h1>                  
               </div>
-              
-              <section ui-view="main" class="theme-section fadeZ"></section>
+
+
+            <section class="theme-section">
+              <div ui-view="main" class="fadeZ"></div>
+            </section>
 
                <footer class="footer">
                 <div class="footer-inner">
+
+
+                  <p>                    
+                    <span class="hidden-xs">ngbp is based on</span>
+                    <a href="http://www.angularjs.org">AngularJS</a>,
+                    <a href="http://getbootstrap.com">Bootstrap</a><span class="hidden-xs">, 
+                    <a href="http://angular-ui.github.com/bootstrap">UI Bootstrap</a>.</span>
+                  </p>
+
                   <ul class="social">
                     <li><i class="fa fa-google-plus"></i></li>
                     <li><i class="fa fa-twitter"></i></li>
                     <li><i class="fa fa-linkedin"></i></li>
                     <li><i class="fa fa-github"></i></li>
                   </ul>
-
-                  <p>                    
-                    ngbp is based on
-                    <a href="http://www.angularjs.org">AngularJS</a>,
-                    <a href="http://getbootstrap.com">Bootstrap</a>, 
-                    <a href="http://angular-ui.github.com/bootstrap">UI Bootstrap</a>,
-                    and 
-                    <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a>.        
-                  </p>
                 </div>
               </footer>
-            </div>
+            
 
-        </div>
+        <!-- </div> -->
       </div>
     </div>
 

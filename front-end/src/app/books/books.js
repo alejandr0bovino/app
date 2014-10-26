@@ -118,7 +118,7 @@ angular.module( 'ngBoilerplate.books', [
     },
     getBookById: function() {
       return $resource(
-        apiUrl + '/books/xss/:id', 
+        apiUrl() + '/books/xss/:id', 
         {
           id: '@id'
         },
