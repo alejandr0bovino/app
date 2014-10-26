@@ -37,22 +37,48 @@ body {
     padding-top: $navbar-minheight;
   }
 
-  //overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 
-.theme-section {
   
-  > div {
+  .theme-section__inner {
     position: absolute;
-    width: auto;
+    //width: auto;
     padding: 2rem 2rem ($navbar-minheight * 2);
-    @media (min-width: $screen-md-min) {
-      padding-right: 10rem;
+    // @media (min-width: $screen-md-min) {
+    //   padding-right: 10rem;
+    // }
+    left: 250px;
+    right: 0;
+    @include transition(left $transition-duration1 $transition-function);
+
+
+    #wrapper.toggled & {
+      width :100%;
+      left: auto ;
+      right: auto;
+    }
+
+    #wrapper.toggled-remove & {
+      position: static
     }
   }
 
-}
+
+
+
+
+
+// #wrapper.toggled {
+//   .theme-section > div {
+//       width :100%;
+//       left: 0; 
+//       right: 0;
+//   }
+// }
+
+
 
 .footer {
   background-color: $brand-white-transparent;
@@ -65,8 +91,17 @@ body {
   padding-left: 250px;
   height: $navbar-minheight; 
   
+  @include transition(padding-left $transition-duration1 $transition-function);
+
+  #wrapper.toggled & {
+    padding-left: $navbar-minheight;
+  }
+  
   p {
     margin-bottom: 0;
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
   }
 
   .footer-inner {
@@ -76,9 +111,9 @@ body {
 
   p {
     
-    @media (max-width: $screen-xs-max) {        
-        @include make-xs-column(6, 0);
-      }
+    // @media (max-width: $screen-xs-max) {        
+    //     @include make-xs-column(6, 0);
+    //   }
 
       @media (min-width: $screen-sm-min) {
         @include make-xs-column(8, 0);
@@ -92,9 +127,9 @@ body {
       text-align: right;
 
       
-      @media (max-width: $screen-xs-max) {        
-        @include make-xs-column(6, 0);
-      }
+      // @media (max-width: $screen-xs-max) {        
+      //   @include make-xs-column(6, 0);
+      // }
 
       @media (min-width: $screen-sm-min) {
         @include make-xs-column(4, 0);

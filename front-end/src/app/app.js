@@ -20,8 +20,7 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.user.service',
   //
   'permission',
-  'angular-growl',
-  "com.2fdevs.videogular"
+  'angular-growl'  
 ])
 
 .constant("requireAuth", ['books'])    

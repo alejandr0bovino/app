@@ -1,5 +1,9 @@
 angular.module( 'ngBoilerplate.movies', [
-  'ui.router'
+  'ui.router',
+  "com.2fdevs.videogular",
+  "com.2fdevs.videogular.plugins.controls",
+  "com.2fdevs.videogular.plugins.overlayplay",
+  "com.2fdevs.videogular.plugins.poster"
 ])
 
 .config(function config( $stateProvider ) {
@@ -13,20 +17,23 @@ angular.module( 'ngBoilerplate.movies', [
     },
     data:{
       pageTitle: 'Movies',
-      headerTitle: 'Movies 4u'
+      headerTitle: 'Movies'
     }
   });
 })
 
 .controller( 'MoviesCtrl', function MoviesCtrl( $scope,  $sce ) {
-  $scope.config = {
-      sources: [
+  $scope.onPlayerReady = function(API) {
+    $scope.API = API;
+  };
 
-          {src: $sce.trustAsResourceUrl("assets/video/videogular.mp4"), type: "video/mp4"}
-          //{src: $sce.trustAsResourceUrl("http://www.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
-          //{src: $sce.trustAsResourceUrl("http://www.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
-      ],     
-      autoPlay: true
+  $scope.config = {
+    sources: [
+      {src: $sce.trustAsResourceUrl("assets/video/videogular.mp4"), type: "video/mp4"},      
+    ],
+    plugins: {
+      poster: "assets/img/videogular.png",
+    }        
   };
 })
 

@@ -51,7 +51,12 @@ module.exports = {
       'vendor/angular-loading-bar/build/loading-bar.min.js',
 
       'vendor/angular-sanitize/angular-sanitize.js',
+
       'vendor/videogular/videogular.min.js',
+      'vendor/videogular-controls/controls.min.js',
+      'vendor/videogular-overlay-play/overlay-play.min.js',
+      'vendor/videogular-poster/poster.min.js',
+
       'vendor/ng-scrollbar/dist/ng-scrollbar.js'
     ],
     css: [

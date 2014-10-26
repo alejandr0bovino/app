@@ -1,45 +1,47 @@
-<div class="theme-grid--left--8">
-    <div class="fadeZoom" ui-view></div>            
-</div>
+<div class="section-featured">
+  <div class="theme-grid--left--8">
+      <div class="fadeZoom" ui-view></div>            
+  </div>
 
-<div class="theme-grid--right--4">
-  <div class="panel panel-inverse">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <i class="fa fa-male"></i>
-        &nbsp;
-        Contacts
-      </h3>
+  <div class="theme-grid--right--4">
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <i class="fa fa-male"></i>
+          &nbsp;
+          Contacts
+        </h3>
+      </div>
+
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <li ng-class="{ active: $state.includes('contacts.list') }">
+            <a class="btn btn-link" ui-sref="contacts.list" ng-click="pleaseLogin()">All Contacts</a>
+          </li>
+          <li>
+            <a class="btn btn-link" ng-click="goToRandom()">Show random contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="panel-body">
-      <ul class="list-unstyled">
-        <li ng-class="{ active: $state.includes('contacts.list') }">
-          <a class="btn btn-link" ui-sref="contacts.list" ng-click="pleaseLogin()">All Contacts</a>
-        </li>
-        <li>
-          <a class="btn btn-link" ng-click="goToRandom()">Show random contact</a>
-        </li>
-      </ul>
+    <div class="panel panel-inverse">
+      <div class="panel-heading">          
+        <h3 class="panel-title">
+          <i class="fa fa-area-chart"></i>
+          &nbsp;
+          Most visited
+        </h3>
+      </div>
+
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <li ng-repeat="contact in contacts | limitTo:2" ui-sref-active="active">
+            <a class="btn btn-link" ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="panel panel-inverse">
-    <div class="panel-heading">          
-      <h3 class="panel-title">
-        <i class="fa fa-area-chart"></i>
-        &nbsp;
-        Most visited
-      </h3>
-    </div>
-
-    <div class="panel-body">
-      <ul class="list-unstyled">
-        <li ng-repeat="contact in contacts | limitTo:2" ui-sref-active="active">
-          <a class="btn btn-link" ui-sref="contacts.detail({contactId:contact.id})" ng-click="pleaseLogin()">{{contact.name}}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>
-

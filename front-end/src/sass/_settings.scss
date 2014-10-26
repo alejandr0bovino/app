@@ -36,6 +36,18 @@ $brand-danger:          #d9534f;
 
 $brand-white-transparent: rgba(#ffffff, .9);
 
+
+
+$state-success-text: #fff;
+$state-success-bg: $brand-success;
+
+$state-danger-text: #fff;
+$state-danger-bg: $brand-danger;
+
+$state-warning-text: #fff;
+$state-warning-bg: $brand-warning;
+
+
 /////////////////////////////////////////////
 
 
@@ -133,15 +145,6 @@ $input-border-focus: #ccc;
 $link-color: $gray-dark;
 
 
-
-$state-success-text: #fff;
-$state-success-bg: $brand-success;
-
-$state-danger-text: #fff;
-$state-danger-bg: $brand-danger;
-
-$state-warning-text: #fff;
-$state-warning-bg: $brand-warning;
 
 
 
