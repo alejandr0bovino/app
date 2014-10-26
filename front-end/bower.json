@@ -11,7 +11,8 @@
     "angular-bootstrap": "~0.11.0",
     "angular-ui-router": "~0.2",
     "angular-loading-bar": "~0.5.2",
-    "angular-sanitize": "~1.3.0"
+    "angular-sanitize": "~1.3.0",
+    "ng-scrollbar": "0.0.6"
   },
   "dependencies": {
     "satellizer": "~0.6.1",

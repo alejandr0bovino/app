@@ -5,6 +5,7 @@ angular.module( 'ngBoilerplate', [
   'ngAnimate',
   'ngSanitize',
   'ngResource',
+  //'ngScrollbar',
   'ui.router',
   //  
   'ngBoilerplate.home',

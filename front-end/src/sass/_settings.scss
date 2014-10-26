@@ -1,4 +1,3 @@
-
 $transition-duration0:  .25s;
 $transition-duration1:  .5s;
 $transition-duration2:  1s;
@@ -35,7 +34,7 @@ $brand-info:            darken(desaturate(#5bc0de, 20), 10) !default;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
-
+$brand-white-transparent: rgba(#ffffff, .9);
 
 /////////////////////////////////////////////
 
@@ -56,7 +55,7 @@ $nav-link-padding: 10px 1rem;
 
 $grid-float-breakpoint: 1200px;
 
-$navbar-default-bg: rgba(#ffffff, .9) !default;
+$navbar-default-bg: $brand-white-transparent !default;
 $navbar-default-link-color: desaturate(darken($gray-dark, 20), 5) !default;
 $navbar-default-link-hover-color: $gray-dark !default;
 $navbar-default-link-hover-bg: #ffffff !default;
@@ -133,10 +132,13 @@ $input-border-focus: #ccc;
 
 $link-color: $gray-dark;
 
+
+
 $state-success-text: #fff;
 $state-success-bg: $brand-success;
 
-$state-danger-text: $brand-danger;
+$state-danger-text: #fff;
+$state-danger-bg: $brand-danger;
 
 $state-warning-text: #fff;
 $state-warning-bg: $brand-warning;

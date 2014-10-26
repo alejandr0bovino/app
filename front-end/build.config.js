@@ -52,6 +52,7 @@ module.exports = {
 
       'vendor/angular-sanitize/angular-sanitize.js',
       'vendor/videogular/videogular.min.js',
+      'vendor/ng-scrollbar/dist/ng-scrollbar.js'
     ],
     css: [
       //'vendor/angular-growl-v2/build/angular-growl.min.css'

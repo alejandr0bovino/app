@@ -6,7 +6,7 @@
 
     <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">    
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">    
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400' rel='stylesheet' type='text/css'>
     
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
@@ -18,93 +18,91 @@
   <body body-click ng-class="{view_home: $state.includes('movies')}">
     
     <header class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <!-- <div class="container"> -->
-        <div class="navbar-header toggled" ng-class="{'toggled': toggleLeftBar}">
+      <div class="navbar-header toggled" ng-class="{'toggled': toggleLeftBar}">
 
-          <button class="navbar-toggle navbar-toggle-left" ng-click="toggleLeftBar = !toggleLeftBar" stop-event='click'>
-            <i class="fa fa-bars"></i>
-            <span class="sr-only">Toggle navigation</span>
-          </button>
+        <button class="navbar-toggle navbar-toggle-left" ng-click="toggleLeftBar = !toggleLeftBar" stop-event='click'>
+          <i class="fa fa-bars"></i>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
 
-          <ul class="nav navbar-nav">
-            <li ui-sref-active="active">
-              <a href ui-sref="home">
-                <i class="fa fa-plane"></i>
-                &nbsp;
-                <b>Air</b> port
-              </a>
-            </li>
-          </ul>
+        <ul class="nav navbar-nav">
+          <li ui-sref-active="active">
+            <a href ui-sref="home">
+              <i class="fa fa-plane"></i>
+              &nbsp;
+              <b>Air</b> port
+            </a>
+          </li>
+        </ul>
+        
+        <button class="navbar-toggle navbar-toggle-right" ng-click="menuCollapsed = ! menuCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="navbar-collapse collapse" collapse="menuCollapsed">
+        <ul class="nav navbar-nav navbar-left">
+          <li ui-sref-active="active">
+            <a href ui-sref="about">                
+              <i class="fa fa-question-circle"></i>
+              &nbsp;
+              About
+            </a>
+          </li>
+
+          <li ng-class="{active: $state.includes('books')}">
+            <a href ui-sref="books.list">
+              <i class="fa fa-book"></i>
+              &nbsp;
+              Books
+            </a>
+          </li>  
+
+          <li ng-class="{active: $state.includes('movies')}">
+            <a href ui-sref="movies">
+              <i class="fa fa-video-camera"></i>
+              &nbsp;
+              Movies
+            </a>
+          </li>              
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-if="!isAuthenticated()" ui-sref-active="active">
+            <a href ui-sref="user.login">
+              <i class="fa fa-toggle-off"></i>
+              &nbsp;
+              Log in
+            </a>
+          </li>            
           
-          <button class="navbar-toggle navbar-toggle-right" ng-click="menuCollapsed = ! menuCollapsed">
-            <span class="sr-only">Toggle navigation</span>
-            <i class="fa fa-bars"></i>
-          </button>
-        </div>
-
-        <div class="navbar-collapse collapse" collapse="menuCollapsed">
-          <ul class="nav navbar-nav navbar-left">
-            <li ui-sref-active="active">
-              <a href ui-sref="about">                
-                <i class="fa fa-question-circle"></i>
-                &nbsp;
-                About
-              </a>
-            </li>
-
-            <li ng-class="{active: $state.includes('books')}">
-              <a href ui-sref="books.list">
-                <i class="fa fa-book"></i>
-                &nbsp;
-                Books
-              </a>
-            </li>  
-
-            <li ng-class="{active: $state.includes('movies')}">
-              <a href ui-sref="movies">
-                <i class="fa fa-video-camera"></i>
-                &nbsp;
-                Movies
-              </a>
-            </li>              
-          </ul>
+          <li ng-if="isAuthenticated()" ui-sref-active="active">
+            <a href ui-sref="user.logout">
+              <i class="fa fa-toggle-on"></i>
+              &nbsp;
+              Log out
+            </a>
+          </li>
           
-          <ul class="nav navbar-nav navbar-right">
-            <li ng-if="!isAuthenticated()" ui-sref-active="active">
-              <a href ui-sref="user.login">
-                <i class="fa fa-toggle-off"></i>
-                &nbsp;
-                Log in
-              </a>
-            </li>            
-            
-            <li ng-if="isAuthenticated()" ui-sref-active="active">
-              <a href ui-sref="user.logout">
-                <i class="fa fa-toggle-on"></i>
-                &nbsp;
-                Log out
-              </a>
-            </li>
-            
-            <li ng-if="!isAuthenticated()" ui-sref-active="active">
-              <a href ui-sref="user.signup">
-                <i class="fa fa-user"></i>
-                &nbsp;
-                Sign up
-              </a>
-            </li>
-            
-            <li ng-if="isAuthenticated()" ui-sref-active="active">
-              <a href ui-sref="user.profile">
-                <i class="fa fa-user"></i>
-                &nbsp;
-                {{ username }}
-                <!-- <span ng-model="username"></span> -->
-              </a>
-            </li>
-          </ul>
-        </div>
-      <!-- </div> -->
+          <li ng-if="!isAuthenticated()" ui-sref-active="active">
+            <a href ui-sref="user.signup">
+              <i class="fa fa-user"></i>
+              &nbsp;
+              Sign up
+            </a>
+          </li>
+          
+          <li ng-if="isAuthenticated()" ui-sref-active="active">
+            <a href ui-sref="user.profile">
+              <i class="fa fa-user"></i>
+              &nbsp;
+              {{ username }}
+              <!-- <span ng-model="username"></span> -->
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <div id="wrapper" ng-class="{'toggled': !toggleLeftBar}" class="toggled">
@@ -139,39 +137,31 @@
       </div>
 
       <div id="page-content-wrapper">
-        <!-- <div class="container-fluid"> -->
+        <div class="theme-header">
+          <h1 ng-bind-html="headerTitle"></h1>                  
+        </div>
 
-              <div class="theme-header">
-                <h1 ng-bind-html="headerTitle"></h1>                  
-              </div>
+        <section class="theme-section">
+          <div ui-view="main" class="fadeZ" ></div>
+        </section>
 
+        <footer class="footer">
+          <div class="footer-inner">
+            <p>                    
+              <span class="hidden-xs">ngbp is based on</span>
+              <a href="http://www.angularjs.org">AngularJS</a>,
+              <a href="http://getbootstrap.com">Bootstrap</a><span class="hidden-xs">, 
+              <a href="http://angular-ui.github.com/bootstrap">UI Bootstrap</a>.</span>
+            </p>
 
-            <section class="theme-section">
-              <div ui-view="main" class="fadeZ"></div>
-            </section>
-
-               <footer class="footer">
-                <div class="footer-inner">
-
-
-                  <p>                    
-                    <span class="hidden-xs">ngbp is based on</span>
-                    <a href="http://www.angularjs.org">AngularJS</a>,
-                    <a href="http://getbootstrap.com">Bootstrap</a><span class="hidden-xs">, 
-                    <a href="http://angular-ui.github.com/bootstrap">UI Bootstrap</a>.</span>
-                  </p>
-
-                  <ul class="social">
-                    <li><i class="fa fa-google-plus"></i></li>
-                    <li><i class="fa fa-twitter"></i></li>
-                    <li><i class="fa fa-linkedin"></i></li>
-                    <li><i class="fa fa-github"></i></li>
-                  </ul>
-                </div>
-              </footer>
-            
-
-        <!-- </div> -->
+            <ul class="social">
+              <li><i class="fa fa-google-plus"></i></li>
+              <li><i class="fa fa-twitter"></i></li>
+              <li><i class="fa fa-linkedin"></i></li>
+              <li><i class="fa fa-github"></i></li>
+            </ul>
+          </div>
+        </footer>
       </div>
     </div>
 

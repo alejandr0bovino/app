@@ -1,7 +1,6 @@
-html, body, #wrapper /* #page-content-wrapper
-.container-fluid  */{
-   height: 100%;
-}
+// html, body, #wrapper {
+//    height: 100%;
+// }
 
 
   // .container-fluid > .col-lg-12 {
@@ -45,31 +44,25 @@ body {
 .theme-section {
   
   > div {
-    @extend .clearfix;  
+    position: absolute;
     width: auto;
     padding: 2rem 2rem ($navbar-minheight * 2);
+    @media (min-width: $screen-md-min) {
+      padding-right: 10rem;
+    }
   }
-  // @media (min-width: $screen-md-min) {
-  //   padding-right: 10rem;
-  // }
+
 }
 
 .footer {
-  background-color: #ffffff;
-  //background-color: aquamarine;
+  background-color: $brand-white-transparent;
   border-top: 1px solid $gray-lighter;
-
-  @media (max-width: $screen-sm-max) {
-  }
-  
-  @media (min-width: $screen-md-min) {
-  }
 
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding-left: $navbar-minheight;
+  padding-left: 250px;
   height: $navbar-minheight; 
   
   p {
@@ -110,8 +103,12 @@ body {
 
       li {
         display: inline-block;
-        margin-left: 10px;
-        margin-right: 10px;
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
       }
 
       //display: inline-block;
@@ -143,6 +140,9 @@ body {
 
 ////////////////////
 
+.theme-grid__row {
+  @extend .clearfix;
+}
 
 [class*="theme-grid--"] {
   $selectors: 1, 2, 3, 4, 5, 6, 8;
