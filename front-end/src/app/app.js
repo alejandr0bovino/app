@@ -10,7 +10,6 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.home',
   'ngBoilerplate.about',
   'ngBoilerplate.books',
-  'ngBoilerplate.page',
   'ngBoilerplate.contacts',
   'ngBoilerplate.user',
   'ngBoilerplate.movies',
@@ -197,6 +196,10 @@ angular.module( 'ngBoilerplate', [
 )
 
 .controller( 'AppCtrl', function AppCtrl ( $rootScope, $scope, $auth, shell, requireAuth, $document, User, $window, $timeout) {
+
+  $scope.menuCollapsed = true;
+
+  
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){    
     $scope.pageTitle = angular.isDefined( toState.data.pageTitle ) ?
       toState.data.pageTitle + ' | ngBoilerplate' :
@@ -220,7 +223,10 @@ angular.module( 'ngBoilerplate', [
     // scroll top on page change
     $timeout(function () {
       $window.scrollTo(0,0);
-    }, 400);
+    }, 500);
+
+    ////////////////////
+    $scope.menuCollapsed = true;
   
   });
 
@@ -256,11 +262,7 @@ angular.module( 'ngBoilerplate', [
 
 
 
-      $scope.menuCollapsed = true;
-
-      $scope.$on('$stateChangeSuccess', function () {
-          $scope.menuCollapsed = true;
-      });
+     
 
 
 })

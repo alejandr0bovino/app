@@ -1,54 +1,9 @@
-// .fadeZ.ng-enter {
-//   @include animation-duration(.5s);
-//   @include animation-name(zoomInZ);
-// }
-
-
-// @-webkit-keyframes zoomInZ {
-//   0% {
-//     opacity: .25;
-//   }
-
-//   50% {
-//     opacity: 1;
-//   }
-// }
-
-// @keyframes zoomInZ {
-//   0% {
-//     opacity: .25;
-
-//   }
-
-//   50% {
-//     opacity: 1;
-//   }
-// }
-.fadeZ.ng-enter {
-  @include animation-duration($transition-duration1);
-  @include animation-name(fadeInDown);
-  @include animation-timing-function($transition-function);  
-  @include animation-delay($transition-duration0);
-  @include animation-fill-mode(both);
-}
-
-.fadeZ.ng-leave {
-  @include animation-duration($transition-duration0);
-  @include animation-name(fadeOutUp);
-  @include animation-timing-function($transition-function);
-  @include animation-fill-mode(both);
-}
-
-////////////////////////////////////////////////////////////////
 
 
 .fadeZoom.ng-enter {
   @include animation-duration(.5s);
   @include animation-name(zoomIn);
 }
-
-
-
 
 @-webkit-keyframes zoomIn {
   0% {
@@ -76,6 +31,22 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+.fadeZ.ng-enter {
+  @include animation-duration($transition-duration1);
+  @include animation-name(fadeInDown);
+  @include animation-timing-function($transition-function);  
+  @include animation-delay($transition-duration0);
+  @include animation-fill-mode(both);
+}
+
+.fadeZ.ng-leave {
+  @include animation-duration($transition-duration0);
+  @include animation-name(fadeOutUp);
+  @include animation-timing-function($transition-function);
+  @include animation-fill-mode(both);
+}
+
+////////////////////////////////////////////////////////////////
 
 
 
@@ -107,10 +78,10 @@
   }
 }
 
-.fadeInRight {
-  -webkit-animation-name: fadeInRight;
-          animation-name: fadeInRight;
-}
+// .fadeInRight {
+//   -webkit-animation-name: fadeInRight;
+//           animation-name: fadeInRight;
+// }
 
 
 
@@ -127,7 +98,7 @@
 
   100% {
     opacity: 0;
-    @include transform(translate3d(0, -10%, 0));    
+    @include transform(translate3d(0, -5%, 0));    
   }
 }
 
@@ -138,7 +109,7 @@
 
   100% {
     opacity: 0;
-    @include transform(translate3d(0, -10%, 0));    
+    @include transform(translate3d(0, -5%, 0));    
   }
 }
 
@@ -156,7 +127,7 @@
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;
-    @include transform(translate3d(0, -10%, 0));
+    @include transform(translate3d(0, -5%, 0));
   }
 
   100% {
@@ -168,7 +139,7 @@
 @keyframes fadeInDown {
   0% {
     opacity: 0;    
-    @include transform(translate3d(0, -10%, 0));
+    @include transform(translate3d(0, -5%, 0));
   }
 
   100% {

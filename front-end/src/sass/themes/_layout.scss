@@ -43,12 +43,15 @@ body {
 
 
 .theme-section {
-  @extend .clearfix;  
-  width: auto;
-  padding: 2rem 2rem ($navbar-minheight * 2);
-  @media (min-width: $screen-lg-min) {
-    padding-right: 10rem;
+  
+  > div {
+    @extend .clearfix;  
+    width: auto;
+    padding: 2rem 2rem ($navbar-minheight * 2);
   }
+  // @media (min-width: $screen-md-min) {
+  //   padding-right: 10rem;
+  // }
 }
 
 .footer {
