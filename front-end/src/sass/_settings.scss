@@ -68,7 +68,7 @@ $nav-link-padding: 10px 1rem;
 $grid-float-breakpoint: 1200px;
 
 $navbar-default-bg: $brand-white-transparent !default;
-$navbar-default-link-color: desaturate(darken($gray-dark, 20), 5) !default;
+$navbar-default-link-color: $gray-dark;
 $navbar-default-link-hover-color: $gray-dark !default;
 $navbar-default-link-hover-bg: #ffffff !default;
 $navbar-default-link-active-bg: transparent;
