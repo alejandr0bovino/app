@@ -23,13 +23,12 @@
 
 
 html {
-  background-color: #ffffff;
- 
+  height: 100%;
 }
 
 
 body {
-  
+ height: 100%; 
   @media (max-width: $screen-xs-max) {
     padding-top: 41px;
   }
